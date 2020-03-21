@@ -1,5 +1,0 @@
-﻿l_english:
- pp_building_robot_assembly_plant_mechanical:0 "$building_robot_assembly_plant$"
- pp_building_robot_assembly_plant_mechanical_desc:0 "$building_robot_assembly_plant_desc$"
- pp_col_assembly:0 "Assembly World"
- pp_col_assembly_desc:0 "A world geared toward the construction of new pops."
