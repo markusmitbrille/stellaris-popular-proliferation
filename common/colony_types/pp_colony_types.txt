@@ -4,9 +4,11 @@ pp_col_assembly = {
 
 	potential = {
 		exists = owner
-		NOT = { has_policy_flag = robots_outlawed }
+		owner = {
+			has_technology = tech_robotic_workers
+			NOT = { has_policy_flag = robots_outlawed }
+		}
 		is_special_colony_type = no
-		has_technology = tech_robotic_workers	
 	}
 
 	triggered_planet_modifier = {
