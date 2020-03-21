@@ -48,9 +48,6 @@ pop_event = {
             is_lithoid = yes
             owner = { has_deficit = minerals }
         }
-
-        # planet has free housing
-        planet = { free_housing > 0 }
     }
         
 	immediate = {
