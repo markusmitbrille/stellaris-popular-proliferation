@@ -1,0 +1,146 @@
+namespace = pp
+
+event = {
+    id = pp.0
+	hide_window = yes
+	is_triggered_only = yes
+        
+	immediate = {
+        every_pop = {
+            limit = {
+                # no proliferation for robots
+                is_robot_pop = no
+            }
+
+            # spread out events for performance and immersion
+            pop_event = {
+                id = pp.10
+                days = 5
+                random = 20
+            }
+        }
+    }
+}
+
+pop_event = {
+    id = pp.10
+	hide_window = yes
+    is_triggered_only = yes
+    
+    trigger = {
+        # no proliferation for robots
+        is_robot_pop = no
+
+        # food for organics
+        NAND = {
+            is_lithoid = no
+            owner = { has_deficit = food }
+        }
+
+        # minerals for lithoids
+        NAND = {
+            is_lithoid = yes
+            owner = { has_deficit = minerals }
+        }
+
+        # planet has free housing
+        planet = { free_housing > 0 }
+    }
+        
+	immediate = {
+        random_list = {
+            # nothing happens
+            1000 = { }
+            # proliferate
+            1 = {
+                modifier = {
+                    factor = 0
+                    planet = { NOT = { free_housing > -64 } }
+                }
+                modifier = {
+                    factor = 0.2541
+                    planet = { free_housing > -64 }
+                }
+                modifier = {
+                    factor = 1.9954
+                    planet = { free_housing > -32 }
+                }
+                modifier = {
+                    factor = 1.4821
+                    planet = { free_housing > -14 }
+                }
+                modifier = {
+                    factor = 1.3304
+                    planet = { free_housing > -1 }
+                }
+                modifier = {
+                    factor = 1.2579
+                    planet = { free_housing > 1 }
+                }
+                modifier = {
+                    factor = 1.2830
+                    planet = { free_housing > 4 }
+                }
+                modifier = {
+                    factor = 1.1352
+                    planet = { free_housing > 6 }
+                }
+                modifier = {
+                    factor = 1.1114
+                    planet = { free_housing > 8 }
+                }
+                modifier = {
+                    factor = 1.1384
+                    planet = { free_housing > 11 }
+                }
+                modifier = {
+                    factor = 1.1100
+                    planet = { free_housing > 14 }
+                }
+                modifier = {
+                    factor = 1.0896
+                    planet = { free_housing > 17 }
+                }
+                modifier = {
+                    factor = 1.0744
+                    planet = { free_housing > 20 }
+                }
+                modifier = {
+                    factor = 1.0822
+                    planet = { free_housing > 24 }
+                }
+                modifier = {
+                    factor = 1.0818
+                    planet = { free_housing > 29 }
+                }
+                modifier = {
+                    factor = 1.0640
+                    planet = { free_housing > 34 }
+                }
+                modifier = {
+                    factor = 1.0690
+                    planet = { free_housing > 41 }
+                }
+                modifier = {
+                    factor = 1.0636
+                    planet = { free_housing > 50 }
+                }
+                modifier = {
+                    factor = 1.0564
+                    planet = { free_housing > 62 }
+                }
+                modifier = {
+                    factor = 1.0546
+                    planet = { free_housing > 83 }
+                }
+                modifier = {
+                    factor = 1.0511
+                    planet = { free_housing > 99 }
+                }
+
+                # create a pop of the same species
+                planet = { create_pop = { species = prev } }
+            }
+        }
+    }
+}

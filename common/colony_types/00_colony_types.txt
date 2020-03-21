@@ -1,0 +1,61 @@
+# Assembly World
+pp_col_assembly = {
+	icon = 11
+
+	potential = {
+		exists = owner
+		NOT = { has_policy_flag = robots_outlawed }
+		is_special_colony_type = no
+		has_technology = tech_robotic_workers	
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_mechanical_empire = yes
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.15
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.40
+		}
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_mult = 0.10
+	}
+
+	weight_modifier = {
+		base = 5
+		modifier = {
+			factor = 0
+			owner = {
+				any_owned_planet = {
+					NOT = { is_planet = PREVPREV }
+					colony_type = pp_col_assembly
+				}
+			}
+		}
+		modifier = {
+			factor = 100
+			owner = {
+				OR = {
+					is_mechanical_empire = yes
+					is_machine_empire = yes
+				}
+			}
+		}
+	}
+}
