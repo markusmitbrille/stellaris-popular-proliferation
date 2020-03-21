@@ -1,18 +1,19 @@
 namespace = pp
 
-event = {
+country_event = {
     id = pp.0
 	hide_window = yes
-	is_triggered_only = yes
+    is_triggered_only = yes
+    
+    trigger = {
+        is_regular_empire = yes
+    }
         
 	immediate = {
-        every_pop = {
+        every_owned_pop = {
             limit = {
                 # no proliferation for robots
                 is_robot_pop = no
-
-                # only normal empires proliferate
-                owner = { is_regular_empire = yes }
             }
 
             # spread out events for performance and immersion
