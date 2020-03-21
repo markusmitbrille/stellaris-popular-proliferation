@@ -138,6 +138,8 @@ pop_event = {
                     planet = { free_housing > 99 }
                 }
 
+                log = "PP::Proliferating (Pop = [This.GetName])"
+
                 # create a pop of the same species
                 planet = { create_pop = { species = prev } }
             }
