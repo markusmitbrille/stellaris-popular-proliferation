@@ -10,6 +10,9 @@ event = {
             limit = {
                 # no proliferation for robots
                 is_robot_pop = no
+
+                # only normal empires proliferate
+                owner = { is_regular_empire = yes }
             }
 
             # spread out events for performance and immersion
@@ -30,6 +33,9 @@ pop_event = {
     trigger = {
         # no proliferation for robots
         is_robot_pop = no
+
+        # only normal empires proliferate
+        owner = { is_regular_empire = yes }
 
         # food for organics
         NAND = {
