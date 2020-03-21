@@ -1,4 +1,7 @@
 NPop = {
 	BASE_POP_GROWTH						= 1		# default = 3	# Base growth rate of pops
 	REQUIRED_POP_GROWTH					= 100	# default = 100	# Required growth to make a new pop
+
+	# BASE_POP_ASSEMBLY					= 0		# default = 0	# Base assembly rate of pops
+	# REQUIRED_POP_ASSEMBLY				= 100	# default = 100	# Required assembly to add a pop
 }
