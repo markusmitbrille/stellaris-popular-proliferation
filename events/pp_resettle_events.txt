@@ -50,8 +50,7 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::resettle.10"
-        # log = "PP::Pop = [This.GetName]"
+        # log = "PP::resettle.10([This.GetName])"
         
         random_list = {
             # nothing happens
@@ -68,171 +67,135 @@ pop_event = {
 
                 # pop is unemployed itself
                 modifier = { factor = 2 is_unemployed = yes }
-            }
-        }
 
-        # stop searching if no longer eligible
-        if = {
-            limit = {
-                NAND = {
-                    # exclude robots without full rights
-                    OR = {
-                        is_robot_pop = no
-                        owner = { has_policy_flag = ai_full_rights }
+                # set migrating flag
+                set_pop_flag = pp_pop_is_migrating
+
+                if = { 
+                    limit = { has_pop_flag = pp_pop_is_migrating }
+                    random_planet = {
+                        limit = {
+                            # only migrate to planets with free jobs and housing
+                            free_jobs > 0
+                            free_housing > 0
+
+                            # no colonies in development
+                            is_under_colonization = no 
+
+                            # prioritize planets in same country
+                            is_inside_border = root.owner
+
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value >= 0.9 }
+                        }
+    
+                        # log = "PP::'Migrating [Root.GetName] to [This.GetName] (90-100)!'"
+                            
+                        # resettle and remove flag
+                        resettle_pop = { pop = root planet = this }
+                        root = { remove_pop_flag = pp_pop_is_migrating }
                     }
-
-                    # exclude pops that are being processed
-                    is_being_purged = no
-                    is_being_assimilated = no
-
-                    # only unemployed pops or those on overcrowded planets
-                    OR = {
-                        is_unemployed = yes
-                        planet = { free_housing < 0 }
-                    }
-
-                    # only worker tier pops
-                    is_pop_category = worker
                 }
-            }
-            
-            # log = "PP::'Pop no longer eligible for resettlement, search stopped!'"
+                if = { 
+                    limit = { has_pop_flag = pp_pop_is_migrating }
+                    random_planet = {
+                        limit = {
+                            # only migrate to planets with free jobs and housing
+                            free_jobs > 0
+                            free_housing > 0
 
-            # remove resettling flag
-            remove_pop_flag = pp_pop_resettling
-        }
+                            # no colonies in development
+                            is_under_colonization = no 
 
-        # search for new home with 100% habitability
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
+                            # prioritize planets in same country
+                            is_inside_border = root.owner
 
-            # log = "PP::'Searching for new home (100) ...'"
-
-            owner = {
-                random_owned_planet = {
-                    limit = {
-                        free_jobs > 0
-                        free_housing > 0
-                        is_under_colonization = no 
-                        habitability = { who = PREVPREV value = 1.0 }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value >= 0.8 }
+                        }
+    
+                        # log = "PP::'Migrating [Root.GetName] to [This.GetName] (80-90)!'"
+                            
+                        # resettle and remove flag
+                        resettle_pop = { pop = root planet = this }
+                        root = { remove_pop_flag = pp_pop_is_migrating }
                     }
-
-                    # log = "PP::'Found new home (100): [This.GetName].'"
-                    
-                    # resettle and remove flag
-                    resettle_pop = { pop = PREVPREV planet = this }
-                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
                 }
-            }
-        }
+                if = { 
+                    limit = { has_pop_flag = pp_pop_is_migrating }
+                    random_planet = {
+                        limit = {
+                            # only migrate to planets with free jobs and housing
+                            free_jobs > 0
+                            free_housing > 0
 
-        # search for new home with 90% habitability
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
+                            # no colonies in development
+                            is_under_colonization = no 
 
-            # log = "PP::'Searching for new home (90) ...'"
+                            # prioritize planets in same country
+                            is_inside_border = root.owner
 
-            owner = {
-                random_owned_planet = {
-                    limit = {
-                        free_jobs > 0
-                        free_housing > 0
-                        is_under_colonization = no 
-                        habitability = { who = PREVPREV value > 0.9 }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value >= 0.7 }
+                        }
+    
+                        # log = "PP::'Migrating [Root.GetName] to [This.GetName] (70-80)!'"
+                            
+                        # resettle and remove flag
+                        resettle_pop = { pop = root planet = this }
+                        root = { remove_pop_flag = pp_pop_is_migrating }
                     }
-
-                    # log = "PP::'Found new home (90): [This.GetName].'"
-                
-                    # resettle and remove flag
-                    resettle_pop = { pop = PREVPREV planet = this }
-                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
                 }
-            }
-        }
+                if = { 
+                    limit = { has_pop_flag = pp_pop_is_migrating }
+                    random_planet = {
+                        limit = {
+                            # only migrate to planets with free jobs and housing
+                            free_jobs > 0
+                            free_housing > 0
 
-        # search for new home with 80% habitability
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
+                            # no colonies in development
+                            is_under_colonization = no 
 
-            # log = "PP::'Searching for new home (80) ...'"
+                            # prioritize planets in same country
+                            is_inside_border = root.owner
 
-            owner = {
-                random_owned_planet = {
-                    limit = {
-                        free_jobs > 0
-                        free_housing > 0
-                        is_under_colonization = no 
-                        habitability = { who = PREVPREV value > 0.8 }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value >= 0.6 }
+                        }
+    
+                        # log = "PP::'Migrating [Root.GetName] to [This.GetName] (60-70)!'"
+                            
+                        # resettle and remove flag
+                        resettle_pop = { pop = root planet = this }
+                        root = { remove_pop_flag = pp_pop_is_migrating }
                     }
-
-                    # log = "PP::'Found new home (80): [This.GetName].'"
-                
-                    # resettle and remove flag
-                    resettle_pop = { pop = PREVPREV planet = this }
-                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
                 }
-            }
-        }
+                if = { 
+                    limit = { has_pop_flag = pp_pop_is_migrating }
+                    random_planet = {
+                        limit = {
+                            # only migrate to planets with free jobs and housing
+                            free_jobs > 0
+                            free_housing > 0
 
-        # search for new home with 70% habitability
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
+                            # no colonies in development
+                            is_under_colonization = no 
 
-            # log = "PP::'Searching for new home (70) ...'"
+                            # prioritize planets in same country
+                            is_inside_border = root.owner
 
-            owner = {
-                random_owned_planet = {
-                    limit = {
-                        free_jobs > 0
-                        free_housing > 0
-                        is_under_colonization = no 
-                        habitability = { who = PREVPREV value > 0.7 }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value >= 0.5 }
+                        }
+    
+                        # log = "PP::'Migrating [Root.GetName] to [This.GetName] (50-60)!'"
+                            
+                        # resettle and remove flag
+                        resettle_pop = { pop = root planet = this }
+                        root = { remove_pop_flag = pp_pop_is_migrating }
                     }
-
-                    # log = "PP::'Found new home (70): [This.GetName].'"
-                
-                    # resettle and remove flag
-                    resettle_pop = { pop = PREVPREV planet = this }
-                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
                 }
-            }
-        }
-
-        # search for new home with 60% habitability
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
-
-            # log = "PP::'Searching for new home (60) ...'"
-
-            owner = {
-                random_owned_planet = {
-                    limit = {
-                        free_jobs > 0
-                        free_housing > 0
-                        is_under_colonization = no 
-                        habitability = { who = PREVPREV value > 0.6 }
-                    }
-
-                    # log = "PP::'Found new home (60): [This.GetName].'"
-                
-                    # resettle and remove flag
-                    resettle_pop = { pop = PREVPREV planet = this }
-                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
-                }
-            }
-        }
-
-        # no new home found
-        if = {
-            limit = { has_pop_flag = pp_pop_resettling }
-
-            # log = "PP::'Found no new home, continuing search!'"
-
-            # retry resettle event after delay
-            pop_event = {
-                id = resettle.10
-                days = @pp_resettle_retry_delay
-                random = @pp_resettle_retry_delay_random
             }
         }
     }
