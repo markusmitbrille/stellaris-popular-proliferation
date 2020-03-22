@@ -48,8 +48,11 @@ pop_event = {
 
             # proliferate
             2 = {
-                # unemployment halves proliferation
-                modifier = { factor = 0.5 planet = { free_jobs < 0 } }
+                # unemployment stifles proliferation
+                modifier = { 
+                    factor = 0.5 
+                    planet = { free_jobs < 0 } 
+                }
 
                 # housing acts as upper limit to proliferation
                 modifier = { factor = 1.00000	planet = { free_housing	>=	 69 }                                     }

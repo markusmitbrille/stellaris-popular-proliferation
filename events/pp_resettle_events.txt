@@ -6,230 +6,237 @@ namespace = resettle
 # Energy costs for purge world relocation
 @pp_relocation_purge_world_cost = -25
 
-# organic resettlement
-# country_event = {
-#     id = resettle.1
-#     hide_window = yes
-#     is_triggered_only = yes
+# migration
+country_event = {
+    id = resettle.1
+    hide_window = yes
+    is_triggered_only = yes
 
-#     immediate = {
-#         # log = "PP::resettle.1"
-#         # log = "PP::Country = [This.GetName]"
+    trigger = {
+        # only regular non-machine empires migrate
+        is_regular_empire = yes
+        is_machine_empire = no
+    }
 
-#         every_owned_pop = {
-#             limit = {
-#                 # exclude pops already resettling
-#                 NOT = { has_pop_flag = pp_pop_resettling }
+    immediate = {
+        # log = "PP::resettle.1([This.GetName])"
 
-#                 # exclude robots without full rights
-#                 OR = {
-#                     is_robot_pop = no
-#                     owner = { has_policy_flag = ai_full_rights }
-#                 }
+        # spread out events for performance and immersion
+        every_owned_pop = { pop_event = { id = resettle.10 days = 5 random = 20 } }
+    }    
+}
 
-#                 # exclude pops that are being processed
-#                 is_being_purged = no
-#                 is_being_assimilated = no
+# migrate pop
+pop_event = {
+    id = resettle.10
+    hide_window = yes
+    is_triggered_only = yes
 
-#                 # only unemployed pops or those on overcrowded planets
-#                 OR = {
-#                     is_unemployed = yes
-#                     planet = { free_housing < 0 }
-#                 }
+    trigger = {
+        # only regular machine empires relocate
+        owner = { is_regular_empire = yes }
+        owner = { is_machine_empire = no }
 
-#                 # only worker tier pops
-#                 is_pop_category = worker
-#             }
-            
-#             # set resettling flag
-#             set_pop_flag = pp_pop_resettling
+        # exclude pops that are being purged, assimilated or enslaved
+        is_being_purged = no
+        is_being_assimilated = no
+        is_enslaved = no
 
-#             # fire resettle event after delay
-#             pop_event = {
-#                 id = resettle.10
-#                 days = @pp_resettle_delay
-#                 random = @pp_resettle_delay_random
-#             }
-#         }
-#     }    
-# }
-
-# resettle individual organic
-# pop_event = {
-#     id = resettle.10
-#     hide_window = yes
-#     is_triggered_only = yes
+        # exclude robots without full rights
+        OR = {
+            is_robot_pop = no
+            owner = { has_policy_flag = ai_full_rights }
+        }
+    }
     
-# 	immediate = {
-#         # log = "PP::resettle.10"
-#         # log = "PP::Pop = [This.GetName]"
+	immediate = {
+        # log = "PP::resettle.10"
+        # log = "PP::Pop = [This.GetName]"
         
-#         # stop searching if no longer eligible
-#         if = {
-#             limit = {
-#                 NAND = {
-#                     # exclude robots without full rights
-#                     OR = {
-#                         is_robot_pop = no
-#                         owner = { has_policy_flag = ai_full_rights }
-#                     }
+        random_list = {
+            # nothing happens
+            1000 = {  }
 
-#                     # exclude pops that are being processed
-#                     is_being_purged = no
-#                     is_being_assimilated = no
+            # migrate
+            1 = {
+                # no emigration from planets with housing and jobs
+                modifier = {
+                    factor = 0
+                    planet = { free_housing > 0 }
+                    planet = { free_jobs > 0 }
+                }
 
-#                     # only unemployed pops or those on overcrowded planets
-#                     OR = {
-#                         is_unemployed = yes
-#                         planet = { free_housing < 0 }
-#                     }
+                # pop is unemployed itself
+                modifier = { factor = 2 is_unemployed = yes }
+            }
+        }
 
-#                     # only worker tier pops
-#                     is_pop_category = worker
-#                 }
-#             }
+        # stop searching if no longer eligible
+        if = {
+            limit = {
+                NAND = {
+                    # exclude robots without full rights
+                    OR = {
+                        is_robot_pop = no
+                        owner = { has_policy_flag = ai_full_rights }
+                    }
+
+                    # exclude pops that are being processed
+                    is_being_purged = no
+                    is_being_assimilated = no
+
+                    # only unemployed pops or those on overcrowded planets
+                    OR = {
+                        is_unemployed = yes
+                        planet = { free_housing < 0 }
+                    }
+
+                    # only worker tier pops
+                    is_pop_category = worker
+                }
+            }
             
-#             # log = "PP::'Pop no longer eligible for resettlement, search stopped!'"
+            # log = "PP::'Pop no longer eligible for resettlement, search stopped!'"
 
-#             # remove resettling flag
-#             remove_pop_flag = pp_pop_resettling
-#         }
+            # remove resettling flag
+            remove_pop_flag = pp_pop_resettling
+        }
 
-#         # search for new home with 100% habitability
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # search for new home with 100% habitability
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Searching for new home (100) ...'"
+            # log = "PP::'Searching for new home (100) ...'"
 
-#             owner = {
-#                 random_owned_planet = {
-#                     limit = {
-#                         free_jobs > 0
-#                         free_housing > 0
-#                         is_under_colonization = no 
-#                         habitability = { who = PREVPREV value = 1.0 }
-#                     }
+            owner = {
+                random_owned_planet = {
+                    limit = {
+                        free_jobs > 0
+                        free_housing > 0
+                        is_under_colonization = no 
+                        habitability = { who = PREVPREV value = 1.0 }
+                    }
 
-#                     # log = "PP::'Found new home (100): [This.GetName].'"
+                    # log = "PP::'Found new home (100): [This.GetName].'"
                     
-#                     # resettle and remove flag
-#                     resettle_pop = { pop = PREVPREV planet = this }
-#                     PREVPREV = { remove_pop_flag = pp_pop_resettling }
-#                 }
-#             }
-#         }
+                    # resettle and remove flag
+                    resettle_pop = { pop = PREVPREV planet = this }
+                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
+                }
+            }
+        }
 
-#         # search for new home with 90% habitability
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # search for new home with 90% habitability
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Searching for new home (90) ...'"
+            # log = "PP::'Searching for new home (90) ...'"
 
-#             owner = {
-#                 random_owned_planet = {
-#                     limit = {
-#                         free_jobs > 0
-#                         free_housing > 0
-#                         is_under_colonization = no 
-#                         habitability = { who = PREVPREV value > 0.9 }
-#                     }
+            owner = {
+                random_owned_planet = {
+                    limit = {
+                        free_jobs > 0
+                        free_housing > 0
+                        is_under_colonization = no 
+                        habitability = { who = PREVPREV value > 0.9 }
+                    }
 
-#                     # log = "PP::'Found new home (90): [This.GetName].'"
+                    # log = "PP::'Found new home (90): [This.GetName].'"
                 
-#                     # resettle and remove flag
-#                     resettle_pop = { pop = PREVPREV planet = this }
-#                     PREVPREV = { remove_pop_flag = pp_pop_resettling }
-#                 }
-#             }
-#         }
+                    # resettle and remove flag
+                    resettle_pop = { pop = PREVPREV planet = this }
+                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
+                }
+            }
+        }
 
-#         # search for new home with 80% habitability
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # search for new home with 80% habitability
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Searching for new home (80) ...'"
+            # log = "PP::'Searching for new home (80) ...'"
 
-#             owner = {
-#                 random_owned_planet = {
-#                     limit = {
-#                         free_jobs > 0
-#                         free_housing > 0
-#                         is_under_colonization = no 
-#                         habitability = { who = PREVPREV value > 0.8 }
-#                     }
+            owner = {
+                random_owned_planet = {
+                    limit = {
+                        free_jobs > 0
+                        free_housing > 0
+                        is_under_colonization = no 
+                        habitability = { who = PREVPREV value > 0.8 }
+                    }
 
-#                     # log = "PP::'Found new home (80): [This.GetName].'"
+                    # log = "PP::'Found new home (80): [This.GetName].'"
                 
-#                     # resettle and remove flag
-#                     resettle_pop = { pop = PREVPREV planet = this }
-#                     PREVPREV = { remove_pop_flag = pp_pop_resettling }
-#                 }
-#             }
-#         }
+                    # resettle and remove flag
+                    resettle_pop = { pop = PREVPREV planet = this }
+                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
+                }
+            }
+        }
 
-#         # search for new home with 70% habitability
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # search for new home with 70% habitability
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Searching for new home (70) ...'"
+            # log = "PP::'Searching for new home (70) ...'"
 
-#             owner = {
-#                 random_owned_planet = {
-#                     limit = {
-#                         free_jobs > 0
-#                         free_housing > 0
-#                         is_under_colonization = no 
-#                         habitability = { who = PREVPREV value > 0.7 }
-#                     }
+            owner = {
+                random_owned_planet = {
+                    limit = {
+                        free_jobs > 0
+                        free_housing > 0
+                        is_under_colonization = no 
+                        habitability = { who = PREVPREV value > 0.7 }
+                    }
 
-#                     # log = "PP::'Found new home (70): [This.GetName].'"
+                    # log = "PP::'Found new home (70): [This.GetName].'"
                 
-#                     # resettle and remove flag
-#                     resettle_pop = { pop = PREVPREV planet = this }
-#                     PREVPREV = { remove_pop_flag = pp_pop_resettling }
-#                 }
-#             }
-#         }
+                    # resettle and remove flag
+                    resettle_pop = { pop = PREVPREV planet = this }
+                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
+                }
+            }
+        }
 
-#         # search for new home with 60% habitability
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # search for new home with 60% habitability
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Searching for new home (60) ...'"
+            # log = "PP::'Searching for new home (60) ...'"
 
-#             owner = {
-#                 random_owned_planet = {
-#                     limit = {
-#                         free_jobs > 0
-#                         free_housing > 0
-#                         is_under_colonization = no 
-#                         habitability = { who = PREVPREV value > 0.6 }
-#                     }
+            owner = {
+                random_owned_planet = {
+                    limit = {
+                        free_jobs > 0
+                        free_housing > 0
+                        is_under_colonization = no 
+                        habitability = { who = PREVPREV value > 0.6 }
+                    }
 
-#                     # log = "PP::'Found new home (60): [This.GetName].'"
+                    # log = "PP::'Found new home (60): [This.GetName].'"
                 
-#                     # resettle and remove flag
-#                     resettle_pop = { pop = PREVPREV planet = this }
-#                     PREVPREV = { remove_pop_flag = pp_pop_resettling }
-#                 }
-#             }
-#         }
+                    # resettle and remove flag
+                    resettle_pop = { pop = PREVPREV planet = this }
+                    PREVPREV = { remove_pop_flag = pp_pop_resettling }
+                }
+            }
+        }
 
-#         # no new home found
-#         if = {
-#             limit = { has_pop_flag = pp_pop_resettling }
+        # no new home found
+        if = {
+            limit = { has_pop_flag = pp_pop_resettling }
 
-#             # log = "PP::'Found no new home, continuing search!'"
+            # log = "PP::'Found no new home, continuing search!'"
 
-#             # retry resettle event after delay
-#             pop_event = {
-#                 id = resettle.10
-#                 days = @pp_resettle_retry_delay
-#                 random = @pp_resettle_retry_delay_random
-#             }
-#         }
-#     }
-# }
+            # retry resettle event after delay
+            pop_event = {
+                id = resettle.10
+                days = @pp_resettle_retry_delay
+                random = @pp_resettle_retry_delay_random
+            }
+        }
+    }
+}
 
 # machine relocation
 country_event = {
@@ -247,15 +254,14 @@ country_event = {
     }
 
     immediate = {
-        # log = "PP::resettle.2"
-        # log = "PP::Country = [This.GetName]"
+        # log = "PP::resettle.2([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = resettle.20 days = 5 random = 20 } }
     }    
 }
 
-# relocate individual machine
+# relocate pop
 pop_event = {
     id = resettle.20
     hide_window = yes
@@ -281,14 +287,13 @@ pop_event = {
             planet = { free_housing < 0 }
         }
         
-        # exclude pops that are being processed
+        # exclude pops that are being purged or assimilated
         is_being_purged = no
         is_being_assimilated = no        
     }
     
 	immediate = {
-        # log = "PP::resettle.20"
-        # log = "PP::[This.GetName]"
+        # log = "PP::resettle.20([This.GetName])"
 
         owner = {
             random_owned_planet = {
@@ -325,8 +330,7 @@ country_event = {
     }
 
     immediate = {
-        # log = "PP::resettle.3"
-        # log = "PP::Country = [This.GetName]"
+        # log = "PP::resettle.3([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = resettle.30 days = 5 random = 20 } }
@@ -353,8 +357,7 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::resettle.30"
-        # log = "PP::[This.GetName]"
+        # log = "PP::resettle.30([This.GetName])"
 
         owner = {
             random_owned_planet = {
