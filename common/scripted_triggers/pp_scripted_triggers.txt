@@ -1,0 +1,11 @@
+# this is a scripted trigger used by vanilla files
+is_special_colony_type = {
+	OR = {
+		has_modifier = penal_colony
+		has_modifier = resort_colony
+		has_modifier = slave_colony
+
+		# add purge worlds as special colony type
+		has_modifier = pp_purge_world
+	}
+}

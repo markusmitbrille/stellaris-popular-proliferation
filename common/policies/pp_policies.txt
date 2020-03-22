@@ -1,0 +1,30 @@
+pp_relocation_imperative = {
+	potential = {
+		is_regular_empire = yes
+		is_machine_empire = yes
+	}
+
+	option = {
+		name = "pp_relocation_imperative_dormant"
+
+		policy_flags = {
+			pp_relocation_imperative_dormant
+		}
+
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "pp_relocation_imperative_active"
+
+		policy_flags = {
+			pp_relocation_imperative_active
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+}

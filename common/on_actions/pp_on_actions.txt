@@ -1,5 +1,8 @@
 on_monthly_pulse_country = {
-	events = {
-        pp.0
+    events = {
+        proliferation.1
+        # resettle.1
+        resettle.2
+        resettle.3
     }
 }
