@@ -56,7 +56,7 @@ pop_event = {
             # nothing happens
             1000 = { }
             # proliferate
-            5 = {
+            2 = {
                 modifier = { factor = 1.00000	planet = { free_housing	>=	 69 } }
                 modifier = { factor = 0.98080	planet = { free_housing	<	 69 }	planet = { free_housing	>=	59 } }
                 modifier = { factor = 0.97162	planet = { free_housing	<	 59 }	planet = { free_housing	>=	53 } }
