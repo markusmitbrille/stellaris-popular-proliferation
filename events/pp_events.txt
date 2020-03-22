@@ -6,23 +6,13 @@ country_event = {
     is_triggered_only = yes
     
     trigger = {
+        # only normal empires proliferate
         is_regular_empire = yes
     }
         
 	immediate = {
-        every_owned_pop = {
-            limit = {
-                # no proliferation for robots
-                is_robot_pop = no
-            }
-
-            # spread out events for performance and immersion
-            pop_event = {
-                id = pp.10
-                days = 5
-                random = 20
-            }
-        }
+        # spread out events for performance and immersion
+        every_owned_pop = { pop_event = { id = pp.10 days = 5 random = 20 } }
     }
 }
 
@@ -32,19 +22,19 @@ pop_event = {
     is_triggered_only = yes
     
     trigger = {
+        # only normal empires proliferate
+        owner = { is_regular_empire = yes }
+        
         # no proliferation for robots
         is_robot_pop = no
 
-        # only normal empires proliferate
-        owner = { is_regular_empire = yes }
-
-        # food for organics
+        # no proliferation during famine (food for non-lithoids)
         NAND = {
             is_lithoid = no
             owner = { has_deficit = food }
         }
 
-        # minerals for lithoids
+        # no proliferation during famine (minerals for lithoids)
         NAND = {
             is_lithoid = yes
             owner = { has_deficit = minerals }
