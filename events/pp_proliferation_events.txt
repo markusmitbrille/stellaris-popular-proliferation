@@ -11,7 +11,7 @@ country_event = {
     }
         
 	immediate = {
-        log = "PP::proliferation.1([This.GetName])"
+        # log = "PP::proliferation.1([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = proliferation.10 days = 5 random = 20 } }
@@ -44,7 +44,7 @@ pop_event = {
     }
         
 	immediate = {
-        log = "PP::proliferation.10([This.GetName])"
+        # log = "PP::proliferation.10([This.GetName])"
 
         random_list = {
             # nothing happens
