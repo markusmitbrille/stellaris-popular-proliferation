@@ -37,6 +37,9 @@ pop_event = {
         owner = { is_regular_empire = yes }
         owner = { is_machine_empire = no }
 
+        # only migrate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
         # exclude pops that are being purged, assimilated or enslaved
         is_being_purged = no
         is_being_assimilated = no
@@ -322,6 +325,9 @@ pop_event = {
         owner = { is_regular_empire = yes }
         owner = { is_machine_empire = yes }
 
+        # only relocate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
         # only relocate when policy is active
         owner = { has_policy_flag = pp_relocation_imperative_active }
         
@@ -397,6 +403,9 @@ pop_event = {
         # only regular empires relocate
         owner = { is_regular_empire = yes }
         
+        # only relocate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
         # only relocate when resource cost can be paid
         owner = { has_resource = { type = energy amount = @pp_relocation_purge_world_cost } }
 
