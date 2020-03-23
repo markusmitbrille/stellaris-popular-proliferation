@@ -19,7 +19,7 @@ country_event = {
     }
 
     immediate = {
-        # log = "PP::resettle.1([This.GetName])"
+        log = "PP::resettle.1([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = resettle.10 days = 5 random = 20 } }
@@ -50,29 +50,42 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::resettle.10([This.GetName])"
+        log = "PP::resettle.10([This.GetName])"
         
         random_list = {
             # nothing happens
-            1000 = {  }
+            5000 = {  }
 
             # migrate
             1 = {
-                # no emigration from planets with housing and jobs
-                modifier = {
-                    factor = 0
-                    planet = { free_housing > 0 }
-                    planet = { free_jobs > 0 }
-                }
+                # no emigration from planets with plentiful housing
+                modifier = { factor = 0.00000	planet = { free_housing >  20 }                                      }
+                modifier = { factor = 0.50887	planet = { free_housing >  10 }     planet = { free_housing <=  20 } }
+                modifier = { factor = 0.75000	planet = { free_housing >   0 }     planet = { free_housing <=  10 } }
+                modifier = { factor = 0.99113	planet = { free_housing >  -5 }     planet = { free_housing <=   0 } }
+                modifier = { factor = 1.09659	planet = { free_housing > -10 }     planet = { free_housing <=  -5 } }
+                modifier = { factor = 1.18709	planet = { free_housing > -15 }     planet = { free_housing <= -10 } }
+                modifier = { factor = 1.26170	planet = { free_housing > -20 }     planet = { free_housing <= -15 } }
+                modifier = { factor = 1.32120	                                    planet = { free_housing <= -20 } }
+
+                # no emigration from planets with plentiful jobs
+                modifier = { factor = 0.00000	planet = { free_jobs >  20 }                                      }
+                modifier = { factor = 0.67235	planet = { free_jobs >  10 }        planet = { free_jobs <=  20 } }
+                modifier = { factor = 0.94385	planet = { free_jobs >   0 }        planet = { free_jobs <=  10 } }
+                modifier = { factor = 1.25000	planet = { free_jobs >  -5 }        planet = { free_jobs <=   0 } }
+                modifier = { factor = 1.40544	planet = { free_jobs > -10 }        planet = { free_jobs <=  -5 } }
+                modifier = { factor = 1.55615	planet = { free_jobs > -15 }        planet = { free_jobs <= -10 } }
+                modifier = { factor = 1.69795	planet = { free_jobs > -20 }        planet = { free_jobs <= -15 } }
+                modifier = { factor = 1.82765	                                    planet = { free_jobs <= -20 } }
 
                 # rulers seldom migrate
-                modifier = { factor = 0.1 is_pop_category = ruler }
+                modifier = { factor = 0.10000 is_pop_category = ruler }
 
-                # specialists seldom migrate
-                modifier = { factor = 0.5 is_pop_category = specialist }
+                # specialists occasionally migrate
+                modifier = { factor = 0.50000 is_pop_category = specialist }
 
                 # pop is unemployed itself
-                modifier = { factor = 2.0 is_unemployed = yes }
+                modifier = { factor = 3.33333 is_unemployed = yes }
                 
                 # set migrating flag
                 set_pop_flag = pp_pop_is_migrating
@@ -104,7 +117,7 @@ pop_event = {
                             }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -132,7 +145,7 @@ pop_event = {
                             habitability = { who = root value >= 0.8 }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (80-100)!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (80-100)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -160,7 +173,7 @@ pop_event = {
                             habitability = { who = root value >= 0.6 }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (60-80)!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (60-80)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -223,7 +236,7 @@ pop_event = {
                             habitability = { who = root value >= 0.8 }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (80-100)!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (80-100)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -251,7 +264,7 @@ pop_event = {
                             habitability = { who = root value >= 0.6 }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (60-80)!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (60-80)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -263,7 +276,7 @@ pop_event = {
                 if = { 
                     limit = { has_pop_flag = pp_pop_is_migrating }
                    
-                    # log = "PP::'Migration failed, no suitable destination found!'"
+                    log = "PP::'Migration failed, no suitable destination found!'"
 
                     # remove flag
                     remove_pop_flag = pp_pop_is_migrating

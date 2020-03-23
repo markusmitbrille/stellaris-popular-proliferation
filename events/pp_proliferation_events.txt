@@ -11,7 +11,7 @@ country_event = {
     }
         
 	immediate = {
-        # log = "PP::proliferation.1([This.GetName])"
+        log = "PP::proliferation.1([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = proliferation.10 days = 5 random = 20 } }
@@ -44,7 +44,7 @@ pop_event = {
     }
         
 	immediate = {
-        # log = "PP::proliferation.10([This.GetName])"
+        log = "PP::proliferation.10([This.GetName])"
 
         random_list = {
             # nothing happens
@@ -52,12 +52,6 @@ pop_event = {
 
             # proliferate
             2 = {
-                # unemployment stifles proliferation
-                modifier = { 
-                    factor = 0.5 
-                    planet = { free_jobs < 0 } 
-                }
-
                 # housing acts as upper limit to proliferation
                 modifier = { factor = 1.00000	planet = { free_housing	>=	 69 }                                     }
                 modifier = { factor = 0.98080	planet = { free_housing	>=	 59 }	planet = { free_housing	<	 69 } }
