@@ -147,7 +147,7 @@ pop_event = {
                             habitability = { who = root value = 1.0 }
                         }
     
-                        log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (100)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
@@ -233,7 +233,7 @@ pop_event = {
                             habitability = { who = root value = 1.0 }
                         }
     
-                        # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName]!'"
+                        log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (100)!'"
                             
                         # resettle and remove flag
                         resettle_pop = { pop = root planet = this }
