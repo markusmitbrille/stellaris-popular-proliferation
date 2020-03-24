@@ -53,87 +53,39 @@ pop_event = {
             # proliferate
             2 = {
                 # housing acts as upper limit to proliferation
-                modifier = { factor = 1.00000	planet = { free_housing	>=	 69 }                                     }
-                modifier = { factor = 0.98080	planet = { free_housing	>=	 59 }	planet = { free_housing	<	 69 } }
-                modifier = { factor = 0.97162	planet = { free_housing	>=	 53 }	planet = { free_housing	<	 59 } }
-                modifier = { factor = 0.96083	planet = { free_housing	>=	 48 }	planet = { free_housing	<	 53 } }
-                modifier = { factor = 0.95257	planet = { free_housing	>=	 45 }	planet = { free_housing	<	 48 } }
-                modifier = { factor = 0.94268	planet = { free_housing	>=	 42 }	planet = { free_housing	<	 45 } }
-                modifier = { factor = 0.93086	planet = { free_housing	>=	 39 }	planet = { free_housing	<	 42 } }
-                modifier = { factor = 0.92177	planet = { free_housing	>=	 37 }	planet = { free_housing	<	 39 } }
-                modifier = { factor = 0.91160	planet = { free_housing	>=	 35 }	planet = { free_housing	<	 37 } }
-                modifier = { factor = 0.90025	planet = { free_housing	>=	 33 }	planet = { free_housing	<	 35 } }
-                modifier = { factor = 0.89410	planet = { free_housing	=	 32 }                                     }
-                modifier = { factor = 0.88080	planet = { free_housing	>=	 30 }	planet = { free_housing	<	 32 } }
-                modifier = { factor = 0.87362	planet = { free_housing	=	 29 }                                     }
-                modifier = { factor = 0.86607	planet = { free_housing	=	 28 }                                     }
-                modifier = { factor = 0.85815	planet = { free_housing	=	 27 }                                     }
-                modifier = { factor = 0.84113	planet = { free_housing	>=	 25 }	planet = { free_housing	<	 27 } }
-                modifier = { factor = 0.83202	planet = { free_housing	=	 24 }                                     }
-                modifier = { factor = 0.82249	planet = { free_housing	=	 23 }                                     }
-                modifier = { factor = 0.81255	planet = { free_housing	=	 22 }                                     }
-                modifier = { factor = 0.80218	planet = { free_housing	=	 21 }                                     }
-                modifier = { factor = 0.79139	planet = { free_housing	=	 20 }                                     }
-                modifier = { factor = 0.78017	planet = { free_housing	=	 19 }                                     }
-                modifier = { factor = 0.76852	planet = { free_housing	=	 18 }                                     }
-                modifier = { factor = 0.75645	planet = { free_housing	=	 17 }                                     }
-                modifier = { factor = 0.74396	planet = { free_housing	=	 16 }                                     }
-                modifier = { factor = 0.73106	planet = { free_housing	=	 15 }                                     }
-                modifier = { factor = 0.71775	planet = { free_housing	=	 14 }                                     }
-                modifier = { factor = 0.70405	planet = { free_housing	=	 13 }                                     }
-                modifier = { factor = 0.68997	planet = { free_housing	=	 12 }                                     }
-                modifier = { factor = 0.67554	planet = { free_housing	=	 11 }                                     }
-                modifier = { factor = 0.66076	planet = { free_housing	=	 10 }                                     }
-                modifier = { factor = 0.64566	planet = { free_housing	=	  9 }                                     }
-                modifier = { factor = 0.63026	planet = { free_housing	=	  8 }                                     }
-                modifier = { factor = 0.61459	planet = { free_housing	=	  7 }                                     }
-                modifier = { factor = 0.59869	planet = { free_housing	=	  6 }                                     }
-                modifier = { factor = 0.58257	planet = { free_housing	=	  5 }                                     }
-                modifier = { factor = 0.56627	planet = { free_housing	=	  4 }                                     }
-                modifier = { factor = 0.54983	planet = { free_housing	=	  3 }                                     }
-                modifier = { factor = 0.53328	planet = { free_housing	=	  2 }                                     }
-                modifier = { factor = 0.51666	planet = { free_housing	=	  1 }                                     }
-                modifier = { factor = 0.50000	planet = { free_housing	=	  0 }                                     }
-                modifier = { factor = 0.48334	planet = { free_housing	=	 -1 }                                     }
-                modifier = { factor = 0.46672	planet = { free_housing	=	 -2 }                                     }
-                modifier = { factor = 0.45017	planet = { free_housing	=	 -3 }                                     }
-                modifier = { factor = 0.43373	planet = { free_housing	=	 -4 }                                     }
-                modifier = { factor = 0.41743	planet = { free_housing	=	 -5 }                                     }
-                modifier = { factor = 0.40131	planet = { free_housing	=	 -6 }                                     }
-                modifier = { factor = 0.38541	planet = { free_housing	=	 -7 }                                     }
-                modifier = { factor = 0.36974	planet = { free_housing	=	 -8 }                                     }
-                modifier = { factor = 0.35434	planet = { free_housing	=	 -9 }                                     }
-                modifier = { factor = 0.33924	planet = { free_housing	=   -10 }                                     }
-                modifier = { factor = 0.32446	planet = { free_housing	=   -11 }                                     }
-                modifier = { factor = 0.31003	planet = { free_housing	=   -12 }                                     }
-                modifier = { factor = 0.29595	planet = { free_housing	=   -13 }                                     }
-                modifier = { factor = 0.28225	planet = { free_housing	=   -14 }                                     }
-                modifier = { factor = 0.26894	planet = { free_housing	=   -15 }                                     }
-                modifier = { factor = 0.25604	planet = { free_housing	=   -16 }                                     }
-                modifier = { factor = 0.24355	planet = { free_housing	=   -17 }                                     }
-                modifier = { factor = 0.23148	planet = { free_housing	=   -18 }                                     }
-                modifier = { factor = 0.21983	planet = { free_housing	=   -19 }                                     }
-                modifier = { factor = 0.20861	planet = { free_housing	=   -20 }                                     }
-                modifier = { factor = 0.19782	planet = { free_housing	=   -21 }                                     }
-                modifier = { factor = 0.18745	planet = { free_housing	=   -22 }                                     }
-                modifier = { factor = 0.17751	planet = { free_housing	=   -23 }                                     }
-                modifier = { factor = 0.16798	planet = { free_housing	=   -24 }                                     }
-                modifier = { factor = 0.15016	planet = { free_housing	>=	-26 }	planet = { free_housing	<   -24 } }
-                modifier = { factor = 0.14185	planet = { free_housing	=   -27 }                                     }
-                modifier = { factor = 0.13393	planet = { free_housing	=   -28 }                                     }
-                modifier = { factor = 0.12638	planet = { free_housing	=   -29 }                                     }
-                modifier = { factor = 0.11238	planet = { free_housing	>=	-31 }	planet = { free_housing	<   -29 } }
-                modifier = { factor = 0.10590	planet = { free_housing	=   -32 }                                     }
-                modifier = { factor = 0.09392	planet = { free_housing	>=	-34 }	planet = { free_housing	<   -32 } }
-                modifier = { factor = 0.08317	planet = { free_housing	>=	-36 }	planet = { free_housing	<   -34 } }
-                modifier = { factor = 0.07355	planet = { free_housing	>=	-38 }	planet = { free_housing	<   -36 } }
-                modifier = { factor = 0.06103	planet = { free_housing	>=	-41 }	planet = { free_housing	<   -38 } }
-                modifier = { factor = 0.05053	planet = { free_housing	>=	-44 }	planet = { free_housing	<   -41 } }
-                modifier = { factor = 0.04175	planet = { free_housing	>=	-47 }	planet = { free_housing	<   -44 } }
-                modifier = { factor = 0.03028	planet = { free_housing	>=	-52 }	planet = { free_housing	<   -47 } }
-                modifier = { factor = 0.02050	planet = { free_housing	>=	-58 }	planet = { free_housing	<   -52 } }
-                modifier = { factor = 0.01063	planet = { free_housing	>=	-68 }	planet = { free_housing	<   -58 } }
-                modifier = { factor = 0.00000	                                    planet = { free_housing	<   -68 } }
+                modifier = { factor = 0.00000	                                    planet = { free_housing < -10 } }
+                modifier = { factor = 0.01358	planet = { free_housing >= -10 }	planet = { free_housing <  -8 } }
+                modifier = { factor = 0.01799	planet = { free_housing >=  -8 }	planet = { free_housing <  -6 } }
+                modifier = { factor = 0.02379	planet = { free_housing >=  -6 }	planet = { free_housing <  -4 } }
+                modifier = { factor = 0.03141	planet = { free_housing >=  -4 }	planet = { free_housing <  -2 } }
+                modifier = { factor = 0.04137	planet = { free_housing >=  -2 }	planet = { free_housing <   0 } }
+                modifier = { factor = 0.05431	planet = { free_housing >=   0 }	planet = { free_housing <   2 } }
+                modifier = { factor = 0.07100	planet = { free_housing >=   2 }	planet = { free_housing <   4 } }
+                modifier = { factor = 0.09231	planet = { free_housing >=   4 }	planet = { free_housing <   6 } }
+                modifier = { factor = 0.11920	planet = { free_housing >=   6 }	planet = { free_housing <   8 } }
+                modifier = { factor = 0.15261	planet = { free_housing >=   8 }	planet = { free_housing <  10 } }
+                modifier = { factor = 0.19332	planet = { free_housing >=  10 }	planet = { free_housing <  12 } }
+                modifier = { factor = 0.24180	planet = { free_housing >=  12 }	planet = { free_housing <  14 } }
+                modifier = { factor = 0.29794	planet = { free_housing >=  14 }	planet = { free_housing <  16 } }
+                modifier = { factor = 0.36091	planet = { free_housing >=  16 }	planet = { free_housing <  18 } }
+                modifier = { factor = 0.42905	planet = { free_housing >=  18 }	planet = { free_housing <  20 } }
+                modifier = { factor = 0.50000	planet = { free_housing >=  20 }	planet = { free_housing <  22 } }
+                modifier = { factor = 0.57095	planet = { free_housing >=  22 }	planet = { free_housing <  24 } }
+                modifier = { factor = 0.63909	planet = { free_housing >=  24 }	planet = { free_housing <  26 } }
+                modifier = { factor = 0.70206	planet = { free_housing >=  26 }	planet = { free_housing <  28 } }
+                modifier = { factor = 0.75820	planet = { free_housing >=  28 }	planet = { free_housing <  30 } }
+                modifier = { factor = 0.80668	planet = { free_housing >=  30 }	planet = { free_housing <  32 } }
+                modifier = { factor = 0.84739	planet = { free_housing >=  32 }	planet = { free_housing <  34 } }
+                modifier = { factor = 0.88080	planet = { free_housing >=  34 }	planet = { free_housing <  36 } }
+                modifier = { factor = 0.90769	planet = { free_housing >=  36 }	planet = { free_housing <  38 } }
+                modifier = { factor = 0.92900	planet = { free_housing >=  38 }	planet = { free_housing <  40 } }
+                modifier = { factor = 0.94569	planet = { free_housing >=  40 }	planet = { free_housing <  42 } }
+                modifier = { factor = 0.95863	planet = { free_housing >=  42 }	planet = { free_housing <  44 } }
+                modifier = { factor = 0.96859	planet = { free_housing >=  44 }	planet = { free_housing <  46 } }
+                modifier = { factor = 0.97621	planet = { free_housing >=  46 }	planet = { free_housing <  48 } }
+                modifier = { factor = 0.98201	planet = { free_housing >=  48 }	planet = { free_housing <  50 } }
+                modifier = { factor = 0.98642	planet = { free_housing >=  50 }                                    }
+ 
 
                 log = "PP::'Proliferating [This.GetName]!''"
 

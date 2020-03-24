@@ -62,24 +62,54 @@ pop_event = {
             # migrate
             1 = {
                 # no emigration from planets with plentiful housing
-                modifier = { factor = 0.00000	planet = { free_housing >  20 }                                      }
-                modifier = { factor = 0.50887	planet = { free_housing >  10 }     planet = { free_housing <=  20 } }
-                modifier = { factor = 0.75000	planet = { free_housing >   0 }     planet = { free_housing <=  10 } }
-                modifier = { factor = 0.99113	planet = { free_housing >  -5 }     planet = { free_housing <=   0 } }
-                modifier = { factor = 1.09659	planet = { free_housing > -10 }     planet = { free_housing <=  -5 } }
-                modifier = { factor = 1.18709	planet = { free_housing > -15 }     planet = { free_housing <= -10 } }
-                modifier = { factor = 1.26170	planet = { free_housing > -20 }     planet = { free_housing <= -15 } }
-                modifier = { factor = 1.32120	                                    planet = { free_housing <= -20 } }
+                modifier = { factor = 0.00000	planet = { free_housing >  20 } }
+                modifier = { factor = 0.01004	planet = { free_housing =  20 } }
+                modifier = { factor = 0.01648	planet = { free_housing =  19 } }
+                modifier = { factor = 0.02698	planet = { free_housing =  18 } }
+                modifier = { factor = 0.04397	planet = { free_housing =  17 } }
+                modifier = { factor = 0.07114	planet = { free_housing =  16 } }
+                modifier = { factor = 0.11379	planet = { free_housing =  15 } }
+                modifier = { factor = 0.17880	planet = { free_housing =  14 } }
+                modifier = { factor = 0.27364	planet = { free_housing =  13 } }
+                modifier = { factor = 0.40341	planet = { free_housing =  12 } }
+                modifier = { factor = 0.56631	planet = { free_housing =  11 } }
+                modifier = { factor = 0.75000	planet = { free_housing =  10 } }
+                modifier = { factor = 0.93369	planet = { free_housing =   9 } }
+                modifier = { factor = 1.09659	planet = { free_housing =   8 } }
+                modifier = { factor = 1.22636	planet = { free_housing =   7 } }
+                modifier = { factor = 1.32120	planet = { free_housing =   6 } }
+                modifier = { factor = 1.38621	planet = { free_housing =   5 } }
+                modifier = { factor = 1.42886	planet = { free_housing =   4 } }
+                modifier = { factor = 1.45603	planet = { free_housing =   3 } }
+                modifier = { factor = 1.47302	planet = { free_housing =   2 } }
+                modifier = { factor = 1.48352	planet = { free_housing =   1 } }
+                modifier = { factor = 1.48996	planet = { free_housing =   0 } }
+                modifier = { factor = 1.50000	planet = { free_housing <   0 } }
 
                 # no emigration from planets with plentiful jobs
-                modifier = { factor = 0.00000	planet = { free_jobs >  20 }                                      }
-                modifier = { factor = 0.67235	planet = { free_jobs >  10 }        planet = { free_jobs <=  20 } }
-                modifier = { factor = 0.94385	planet = { free_jobs >   0 }        planet = { free_jobs <=  10 } }
-                modifier = { factor = 1.25000	planet = { free_jobs >  -5 }        planet = { free_jobs <=   0 } }
-                modifier = { factor = 1.40544	planet = { free_jobs > -10 }        planet = { free_jobs <=  -5 } }
-                modifier = { factor = 1.55615	planet = { free_jobs > -15 }        planet = { free_jobs <= -10 } }
-                modifier = { factor = 1.69795	planet = { free_jobs > -20 }        planet = { free_jobs <= -15 } }
-                modifier = { factor = 1.82765	                                    planet = { free_jobs <= -20 } }
+                modifier = { factor = 0.00000	planet = { free_jobs >  20 } }
+                modifier = { factor = 0.01339	planet = { free_jobs =  20 } }
+                modifier = { factor = 0.02197	planet = { free_jobs =  19 } }
+                modifier = { factor = 0.03597	planet = { free_jobs =  18 } }
+                modifier = { factor = 0.05862	planet = { free_jobs =  17 } }
+                modifier = { factor = 0.09485	planet = { free_jobs =  16 } }
+                modifier = { factor = 0.15172	planet = { free_jobs =  15 } }
+                modifier = { factor = 0.23841	planet = { free_jobs =  14 } }
+                modifier = { factor = 0.36485	planet = { free_jobs =  13 } }
+                modifier = { factor = 0.53788	planet = { free_jobs =  12 } }
+                modifier = { factor = 0.75508	planet = { free_jobs =  11 } }
+                modifier = { factor = 1.00000	planet = { free_jobs =  10 } }
+                modifier = { factor = 1.24492	planet = { free_jobs =   9 } }
+                modifier = { factor = 1.46212	planet = { free_jobs =   8 } }
+                modifier = { factor = 1.63515	planet = { free_jobs =   7 } }
+                modifier = { factor = 1.76159	planet = { free_jobs =   6 } }
+                modifier = { factor = 1.84828	planet = { free_jobs =   5 } }
+                modifier = { factor = 1.90515	planet = { free_jobs =   4 } }
+                modifier = { factor = 1.94138	planet = { free_jobs =   3 } }
+                modifier = { factor = 1.96403	planet = { free_jobs =   2 } }
+                modifier = { factor = 1.97803	planet = { free_jobs =   1 } }
+                modifier = { factor = 1.98661	planet = { free_jobs =   0 } }
+                modifier = { factor = 2.00000	planet = { free_jobs <   0 } }
 
                 # rulers seldom migrate
                 modifier = { factor = 0.10000 is_pop_category = ruler }
@@ -87,8 +117,8 @@ pop_event = {
                 # specialists occasionally migrate
                 modifier = { factor = 0.50000 is_pop_category = specialist }
 
-                # pop is unemployed itself
-                modifier = { factor = 3.33333 is_unemployed = yes }
+                # unemployed pops are especially eager to migrate
+                modifier = { factor = 5.00000 is_unemployed = yes }
                 
                 # set migrating flag
                 set_pop_flag = pp_pop_is_migrating
