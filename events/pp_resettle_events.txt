@@ -344,7 +344,7 @@ country_event = {
     }    
 }
 
-# relocate pop
+# relocate individual machine
 pop_event = {
     id = resettle.20
     hide_window = yes
