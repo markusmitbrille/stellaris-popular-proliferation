@@ -143,13 +143,8 @@ pop_event = {
                             # no colonies in development
                             is_under_colonization = no 
 
-                            # prioritize special planets
-                            OR = {
-                                is_planet_class = pc_gaia
-                                is_planet_class = pc_city
-                                is_planet_class = pc_habitat
-                                is_planet_class = pc_ringworld_habitable
-                            }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value = 1.0 }
                         }
     
                         log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
@@ -232,15 +227,10 @@ pop_event = {
                             has_orbital_bombardment = no
 
                             # no colonies in development
-                            is_under_colonization = no 
+                            is_under_colonization = no
 
-                            # prioritize special planets
-                            OR = {
-                                is_planet_class = pc_gaia
-                                is_planet_class = pc_city
-                                is_planet_class = pc_habitat
-                                is_planet_class = pc_ringworld_habitable
-                            }
+                            # prioritize planets with higher habitability
+                            habitability = { who = root value = 1.0 }
                         }
     
                         # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName]!'"
