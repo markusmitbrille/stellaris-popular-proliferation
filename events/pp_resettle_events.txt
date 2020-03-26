@@ -16,9 +16,6 @@ country_event = {
         # only regular non-machine empires migrate
         is_regular_empire = yes
         is_machine_empire = no
-
-        # DEGBUGGING: ONLY TRIGGERS FOR PLAYER
-        # is_ai = no
     }
 
     immediate = {
