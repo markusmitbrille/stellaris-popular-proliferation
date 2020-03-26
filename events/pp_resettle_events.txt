@@ -18,7 +18,7 @@ country_event = {
         is_machine_empire = no
 
         # DEGBUGGING: ONLY TRIGGERS FOR PLAYER
-        is_ai = no
+        # is_ai = no
     }
 
     immediate = {
