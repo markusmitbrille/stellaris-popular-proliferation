@@ -19,3 +19,4 @@ tags={
 name="Popular Proliferation"
 picture="thumbnail.png"
 supported_version="2.6.*"
+path="C:/Users/makak/Documents/Paradox Interactive/Stellaris/mod/stellaris-popular-proliferation"
