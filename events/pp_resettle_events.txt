@@ -13,6 +13,7 @@ country_event = {
     is_triggered_only = yes
 
     trigger = {
+        is_ai = no
         # only regular non-machine empires migrate
         is_regular_empire = yes
         is_machine_empire = no
@@ -39,6 +40,9 @@ pop_event = {
 
         # only migrate if there are other pops on the planet
         planet = { num_pops > 1 }
+
+        # exclude pops who recently migrated
+        NOT = { has_pop_flag = pp_pop_recently_migrated }
 
         # exclude pops that are being purged, assimilated or enslaved
         is_being_purged = no
@@ -130,6 +134,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # prioritize planets in same country
                             owner = { is_same_empire = root.owner }
 
@@ -139,9 +150,6 @@ pop_event = {
 
                             # not under siege
                             has_orbital_bombardment = no
-
-                            # no colonies in development
-                            is_under_colonization = no 
 
                             # prioritize planets with higher habitability
                             habitability = { who = root value = 1.0 }
@@ -158,6 +166,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # prioritize planets in same country
                             owner = { is_same_empire = root.owner }
 
@@ -167,9 +182,6 @@ pop_event = {
 
                             # not under siege
                             has_orbital_bombardment = no
-
-                            # no colonies in development
-                            is_under_colonization = no 
 
                             # prioritize planets with higher habitability
                             habitability = { who = root value >= 0.8 }
@@ -186,6 +198,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # prioritize planets in same country
                             owner = { is_same_empire = root.owner }
 
@@ -195,9 +214,6 @@ pop_event = {
 
                             # not under siege
                             has_orbital_bombardment = no
-
-                            # no colonies in development
-                            is_under_colonization = no 
 
                             # prioritize planets with higher habitability
                             habitability = { who = root value >= 0.6 }
@@ -216,6 +232,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # include planets in other countries with migration access
                             owner = { has_migration_access = root.owner }
 
@@ -225,9 +248,6 @@ pop_event = {
 
                             # not under siege
                             has_orbital_bombardment = no
-
-                            # no colonies in development
-                            is_under_colonization = no
 
                             # prioritize planets with higher habitability
                             habitability = { who = root value = 1.0 }
@@ -244,6 +264,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # include planets in other countries with migration access
                             owner = { has_migration_access = root.owner }
 
@@ -253,9 +280,6 @@ pop_event = {
 
                             # not under siege
                             has_orbital_bombardment = no
-
-                            # no colonies in development
-                            is_under_colonization = no 
 
                             # prioritize planets with higher habitability
                             habitability = { who = root value >= 0.8 }
@@ -272,6 +296,13 @@ pop_event = {
                     limit = { has_pop_flag = pp_pop_is_migrating }
                     random_planet = {
                         limit = {
+                            # only colonized planets
+                            is_colony = yes
+                            is_under_colonization = no 
+
+                            # exclude current planet
+                            NOT = { is_same_value = root.planet }
+
                             # include planets in other countries with migration access
                             owner = { has_migration_access = root.owner }
 
@@ -282,18 +313,18 @@ pop_event = {
                             # not under siege
                             has_orbital_bombardment = no
 
-                            # no colonies in development
-                            is_under_colonization = no 
-
                             # prioritize planets with higher habitability
                             habitability = { who = root value >= 0.6 }
                         }
     
                         log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (60-80)!'"
                             
-                        # resettle and remove flag
+                        # resettle
                         resettle_pop = { pop = root planet = this }
+
+                        # change migrating flag for timeout flag
                         root = { remove_pop_flag = pp_pop_is_migrating }
+                        root = { set_timed_pop_flag = { flag = pp_pop_recently_migrated days = 180 } }
                     }
                 }
 
@@ -303,7 +334,7 @@ pop_event = {
                    
                     log = "PP::'Migration failed, no suitable destination found!'"
 
-                    # remove flag
+                    # remove migrating flag
                     remove_pop_flag = pp_pop_is_migrating
                 }
             }

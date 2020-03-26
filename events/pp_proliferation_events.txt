@@ -6,6 +6,7 @@ country_event = {
     is_triggered_only = yes
     
     trigger = {
+        is_ai = no
         # only normal empires proliferate
         is_regular_empire = yes
     }
