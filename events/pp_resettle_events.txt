@@ -15,7 +15,7 @@ country_event = {
     trigger = {
         is_ai = no
         # only regular non-machine empires migrate
-        is_regular_empire = yes
+        is_country_type = default
         is_machine_empire = no
     }
 
@@ -35,7 +35,7 @@ pop_event = {
 
     trigger = {
         # only regular machine empires relocate
-        owner = { is_regular_empire = yes }
+        owner = { is_country_type = default }
         owner = { is_machine_empire = no }
 
         # only migrate if there are other pops on the planet
@@ -350,7 +350,7 @@ country_event = {
     
     trigger = {
         # only regular machine empires relocate
-        is_regular_empire = yes
+        is_country_type = default
         is_machine_empire = yes
 
         # only relocate when policy is active
@@ -358,7 +358,7 @@ country_event = {
     }
 
     immediate = {
-        # log = "PP::resettle.2([This.GetName])"
+        log = "PP::resettle.2([This.GetName])"
 
         # spread out events for performance and immersion
         every_owned_pop = { pop_event = { id = resettle.20 days = 5 random = 20 } }
@@ -373,7 +373,7 @@ pop_event = {
 
     trigger = {
         # only regular machine empires relocate
-        owner = { is_regular_empire = yes }
+        owner = { is_country_type = default }
         owner = { is_machine_empire = yes }
 
         # only relocate if there are other pops on the planet
@@ -400,7 +400,7 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::resettle.20([This.GetName])"
+        log = "PP::resettle.20([This.GetName])"
 
         owner = {
             random_owned_planet = {
@@ -430,7 +430,7 @@ country_event = {
     
     trigger = {
         # only regular empires relocate
-        is_regular_empire = yes
+        is_country_type = default
 
         # only relocate if there are any purge worlds
         any_owned_planet = { has_modifier = pp_purge_world }
@@ -452,7 +452,7 @@ pop_event = {
 
     trigger = {
         # only regular empires relocate
-        owner = { is_regular_empire = yes }
+        owner = { is_country_type = default }
         
         # only relocate if there are other pops on the planet
         planet = { num_pops > 1 }
