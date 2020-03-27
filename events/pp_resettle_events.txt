@@ -404,13 +404,13 @@ pop_event = {
                     is_under_colonization = no 
                 }
 
-                log = "PP::'Relocating Machine [Prev.Prev.GetName] to [This.GetName]!'"
+                log = "PP::'Relocating Machine [Root.GetName] to [This.GetName]!'"
             
                 # pay cost
                 owner = { add_resource = { energy = -50 } }
                 
                 # relocate
-                resettle_pop = { pop = PREVPREV planet = this }
+                resettle_pop = { pop = root planet = this }
             }
         }
     }
@@ -469,13 +469,13 @@ pop_event = {
                     has_modifier = pp_purge_world
                 }
 
-                log = "PP::'Relocating Undesirable [Prev.Prev.GetName] to [This.GetName]!'"
+                log = "PP::'Relocating Undesirable [Root.GetName] to [This.GetName]!'"
             
                 # pay cost
                 owner = { add_resource = { energy = -25 } }
                 
                 # relocate
-                resettle_pop = { pop = PREVPREV planet = this }
+                resettle_pop = { pop = root planet = this }
             }
         }
     }
