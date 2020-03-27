@@ -12,7 +12,7 @@ pp_decision_purge_world = {
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = penal_colony }
 		NOT = { has_modifier = slave_colony }
-		owner = { is_regular_empire = yes }
+		owner = { is_country_type = default }
 		owner = { has_policy_flag = purge_allowed }
 		habitable_structure = no
 	}
