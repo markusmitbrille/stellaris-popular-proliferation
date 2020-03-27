@@ -343,6 +343,9 @@ country_event = {
     is_triggered_only = yes
     
     trigger = {
+        # player only event
+        is_ai = no
+
         # only regular machine empires relocate
         is_country_type = default
         is_machine_empire = yes
@@ -366,6 +369,9 @@ pop_event = {
     is_triggered_only = yes
 
     trigger = {
+        # player only event
+        owner = { is_ai = no }
+
         # only regular machine empires relocate
         owner = { is_country_type = default }
         owner = { is_machine_empire = yes }
@@ -423,6 +429,9 @@ country_event = {
     is_triggered_only = yes
     
     trigger = {
+        # player only event
+        is_ai = no
+
         # only regular empires relocate
         is_country_type = default
 
@@ -445,6 +454,9 @@ pop_event = {
     is_triggered_only = yes
 
     trigger = {
+        # player only event
+        owner = { is_ai = no }
+
         # only regular empires relocate
         owner = { is_country_type = default }
         
