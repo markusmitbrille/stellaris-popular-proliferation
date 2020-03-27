@@ -51,6 +51,6 @@ pp_decision_abolish_purge_world = {
 	}
 
 	ai_weight = {
-		weight = 0
+		weight = 1000
 	}
 }
