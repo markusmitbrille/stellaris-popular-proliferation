@@ -87,7 +87,7 @@ pop_event = {
                 modifier = { factor = 0.98642	planet = { free_housing >=  50 }                                    }
  
 
-                log = "PP::'Proliferating [This.GetName]!''"
+                # log = "PP::'Proliferating [This.GetName]!''"
 
                 # create a pop of the same species
                 planet = { create_pop = { species = prev } }
