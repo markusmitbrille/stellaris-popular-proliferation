@@ -1,11 +1,5 @@
 namespace = resettle
 
-# Energy costs for machine relocation
-@pp_relocation_cost = -50
-
-# Energy costs for purge world relocation
-@pp_relocation_purge_world_cost = -25
-
 # migration
 country_event = {
     id = resettle.1
@@ -383,7 +377,7 @@ pop_event = {
         owner = { has_policy_flag = pp_relocation_imperative_active }
         
         # only relocate when resource cost can be paid
-        owner = { has_resource = { type = energy amount = @pp_relocation_cost } }
+        owner = { has_resource = { type = energy amount > 50 } }
 
         # only relocate simple drones
         is_pop_category = simple_drone
@@ -413,7 +407,7 @@ pop_event = {
                 log = "PP::'Relocating Machine [Prev.Prev.GetName] to [This.GetName]!'"
             
                 # pay cost
-                owner = { add_resource = { energy = @pp_relocation_cost } }
+                owner = { add_resource = { energy = -50 } }
                 
                 # relocate
                 resettle_pop = { pop = PREVPREV planet = this }
@@ -458,7 +452,7 @@ pop_event = {
         planet = { num_pops > 1 }
 
         # only relocate when resource cost can be paid
-        owner = { has_resource = { type = energy amount = @pp_relocation_purge_world_cost } }
+        owner = { has_resource = { type = energy amount > 25 } }
 
         # only relocate pops that are being purged on a non-purge world
         planet = { NOT = { has_modifier = pp_purge_world } }
@@ -478,7 +472,7 @@ pop_event = {
                 log = "PP::'Relocating Undesirable [Prev.Prev.GetName] to [This.GetName]!'"
             
                 # pay cost
-                owner = { add_resource = { energy = @pp_relocation_purge_world_cost } }
+                owner = { add_resource = { energy = -25 } }
                 
                 # relocate
                 resettle_pop = { pop = PREVPREV planet = this }
