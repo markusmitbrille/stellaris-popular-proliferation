@@ -1,5 +1,9 @@
 pp_relocation_imperative = {
 	potential = {
+		# only for players
+		is_ai = no
+
+		# only for default machine empires
 		is_country_type = default
 		is_machine_empire = yes
 	}
@@ -10,10 +14,6 @@ pp_relocation_imperative = {
 		policy_flags = {
 			pp_relocation_imperative_dormant
 		}
-
-		AI_weight = {
-			factor = 1
-		}
 	}
 
 	option = {
@@ -21,10 +21,6 @@ pp_relocation_imperative = {
 
 		policy_flags = {
 			pp_relocation_imperative_active
-		}
-
-		AI_weight = {
-			factor = 0
 		}
 	}
 }

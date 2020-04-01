@@ -6,7 +6,7 @@ country_event = {
     is_triggered_only = yes
     
     trigger = {
-        # only normal empires proliferate
+        # only default empires proliferate
         is_country_type = default
     }
         
@@ -24,7 +24,7 @@ pop_event = {
     is_triggered_only = yes
     
     trigger = {
-        # only normal empires proliferate
+        # only default empires proliferate
         owner = { is_country_type = default }
         
         # no proliferation for robots

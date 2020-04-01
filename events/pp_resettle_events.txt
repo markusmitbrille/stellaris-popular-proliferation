@@ -345,7 +345,7 @@ country_event = {
         # player only event
         is_ai = no
 
-        # only regular machine empires relocate
+        # only default machine empires relocate
         is_country_type = default
         is_machine_empire = yes
 
@@ -371,7 +371,7 @@ pop_event = {
         # player only event
         owner = { is_ai = no }
 
-        # only regular machine empires relocate
+        # only default machine empires relocate
         owner = { is_country_type = default }
         owner = { is_machine_empire = yes }
 
@@ -431,7 +431,7 @@ country_event = {
         # player only event
         is_ai = no
 
-        # only regular empires relocate
+        # only default empires relocate
         is_country_type = default
 
         # only relocate if there are any purge worlds
@@ -456,7 +456,7 @@ pop_event = {
         # player only event
         owner = { is_ai = no }
 
-        # only regular empires relocate
+        # only default empires relocate
         owner = { is_country_type = default }
         
         # only relocate if there are other pops on the planet

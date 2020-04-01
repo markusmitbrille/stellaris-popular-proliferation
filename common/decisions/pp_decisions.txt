@@ -8,6 +8,9 @@ pp_decision_purge_world = {
 	}
 
 	potential = {
+		# only for players
+		owner = { is_ai = no }
+
 		is_capital = no
 		NOT = { has_modifier = resort_colony }
 		NOT = { has_modifier = penal_colony }
