@@ -1,7 +1,12 @@
 NPop = {
+	OVERCROWDING_NO_GROWTH_THRESHOLD	= 2.0	# default = 1.5	# At this amount of overcrowding, growth stops entirely
+	OVERCROWDING_DECLINE_THRESHOLD		= 2.0	# default = 2.0	# At this amount of overcrowding, pops start declining
+
 	BASE_POP_GROWTH						= 2		# default = 3	# Base growth rate of pops
 	REQUIRED_POP_GROWTH					= 100	# default = 100	# Required growth to make a new pop
 
 	# BASE_POP_ASSEMBLY					= 0		# default = 0	# Base assembly rate of pops
 	# REQUIRED_POP_ASSEMBLY				= 100	# default = 100	# Required assembly to add a pop
+
+	MAX_GROWTH_FROM_IMMIGRATION			= 50	# default = 5
 }

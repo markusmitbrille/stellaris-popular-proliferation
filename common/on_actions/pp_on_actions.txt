@@ -1,8 +1,31 @@
-on_monthly_pulse_country = {
-    events = {
-        proliferation.1
-        resettle.1
-        resettle.2
-        resettle.3
-    }
+# A pop has finished growing
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_grown = {
+	events = {
+		# IDEA: Resettle pop based on policy.
+        # resettle.10
+	}
+}
+
+# A pop has finished assembling
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_assembled = {
+	events = {
+		# IDEA: Resettle pop based on policy.
+        # resettle.20
+	}
+}
+
+# Pop is abducted by raiding stance
+# This = Pop scope
+# From = planet abducted from
+on_pop_abducted  = {
+	events = {
+        # IDEA: Resettle pop onto purge world.
+        # resettle.30
+	}
 }

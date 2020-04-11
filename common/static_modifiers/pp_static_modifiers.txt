@@ -1,0 +1,40 @@
+planet_housing_no_happiness_low = {
+	pop_growth_speed_reduction = 1.0 # results in 1.0 at 50% of required housing
+	planet_emigration_push_add = 100 # results in 100 at 50% of required housing
+}
+
+planet_housing_no_happiness_high = {
+	planet_immigration_pull_mult = 0.25
+}
+
+planet_housing_low = {
+	pop_growth_speed_reduction = 1.0 # results in 1.0 at 50% of required housing
+	planet_emigration_push_add = 100 # results in 100 at 50% of required housing
+}
+
+planet_housing_high = {
+	planet_immigration_pull_mult = 0.25
+}
+
+# Overcrowding
+planet_overcrowded = {
+	# no constant overcrowding malus
+}
+
+# IDEA: These vanilla modifiers might come in useful for balancing later on.
+# Per missing job
+# planet_employment_no_happiness_low = {
+# 	planet_emigration_push_add = 5
+# }
+
+# planet_employment_no_happiness_high = {
+# 	planet_immigration_pull_add = 5
+# }
+
+# planet_employment_low = {
+# 	planet_emigration_push_add = 5
+# }
+
+# planet_employment_high = {
+# 	planet_immigration_pull_add = 5
+# }

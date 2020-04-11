@@ -1,26 +1,27 @@
-pp_relocation_imperative = {
-	potential = {
-		# only for players
-		is_ai = no
+# # TODO: Legacy code, needs integration
+# pp_relocation_imperative = {
+# 	potential = {
+# 		# only for players
+# 		is_ai = no
 
-		# only for default machine empires
-		is_country_type = default
-		is_machine_empire = yes
-	}
+# 		# only for default machine empires
+# 		is_country_type = default
+# 		is_machine_empire = yes
+# 	}
 
-	option = {
-		name = "pp_relocation_imperative_dormant"
+# 	option = {
+# 		name = "pp_relocation_imperative_dormant"
 
-		policy_flags = {
-			pp_relocation_imperative_dormant
-		}
-	}
+# 		policy_flags = {
+# 			pp_relocation_imperative_dormant
+# 		}
+# 	}
 
-	option = {
-		name = "pp_relocation_imperative_active"
+# 	option = {
+# 		name = "pp_relocation_imperative_active"
 
-		policy_flags = {
-			pp_relocation_imperative_active
-		}
-	}
-}
+# 		policy_flags = {
+# 			pp_relocation_imperative_active
+# 		}
+# 	}
+# }
