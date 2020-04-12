@@ -1,61 +1,49 @@
-# # TODO: Legacy code, needs integration
-# pp_decision_purge_world = {
-# 	owned_planets_only = yes
-# 	icon = decision_penal_colony
+pp_decision_purge_world = {
+	owned_planets_only = yes
+	icon = decision_penal_colony
 
-# 	resources = {
-# 		category = decisions
-# 		cost = { influence = 100 }
-# 	}
+	resources = {
+		category = decisions
+		cost = { influence = 100 }
+	}
 
-# 	potential = {
-# 		# only for players
-# 		owner = { is_ai = no }
+	potential = {
+		is_capital = no
+		owner = { is_country_type = default }
+		owner = { has_policy_flag = purge_allowed }
+		habitable_structure = no
+	}
 
-# 		is_capital = no
-# 		NOT = { has_modifier = resort_colony }
-# 		NOT = { has_modifier = penal_colony }
-# 		NOT = { has_modifier = slave_colony }
-# 		owner = { is_country_type = default }
-# 		owner = { has_policy_flag = purge_allowed }
-# 		habitable_structure = no
-# 	}
+	effect = {
+		add_modifier = {
+			modifier = pp_purge_world
+			days = -1
+		}
+	}
 
-# 	effect = {
-# 		add_modifier = {
-# 			modifier = pp_purge_world
-# 			days = -1
-# 		}
+	ai_weight = {
+		weight = 0
+	}
+}
 
-# 		hidden_effect = { validate_planet_buildings_and_districts = yes }
-# 	}
+pp_decision_abolish_purge_world = {
+	owned_planets_only = yes
+	icon = decision_penal_colony
 
-# 	ai_weight = {
-# 		weight = 0
-# 	}
-# }
+	resources = {
+		category = decisions
+		cost = { influence = 25 }
+	}
 
-# # TODO: Legacy code, needs integration
-# pp_decision_abolish_purge_world = {
-# 	owned_planets_only = yes
-# 	icon = decision_penal_colony
+	potential = {
+		has_modifier = pp_purge_world
+	}
 
-# 	resources = {
-# 		category = decisions
-# 		cost = { influence = 250 }
-# 	}
+	effect = {
+		remove_modifier = pp_purge_world
+	}
 
-# 	potential = {
-# 		has_modifier = pp_purge_world
-# 	}
-
-# 	effect = {
-# 		remove_modifier = pp_purge_world
-
-# 		hidden_effect = { validate_planet_buildings_and_districts = yes }
-# 	}
-
-# 	ai_weight = {
-# 		weight = 1
-# 	}
-# }
+	ai_weight = {
+		weight = 10
+	}
+}

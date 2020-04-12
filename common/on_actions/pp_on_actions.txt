@@ -4,8 +4,7 @@
 # FromFrom = Pop
 on_pop_grown = {
 	events = {
-		# TODO: Resettle hive pop based on policy.
-        # resettle.10
+        pp.10
 	}
 }
 
@@ -15,8 +14,7 @@ on_pop_grown = {
 # FromFrom = Pop
 on_pop_assembled = {
 	events = {
-		# TODO: Resettle machine pop based on policy.
-        # resettle.20
+        pp.20
 	}
 }
 
@@ -25,7 +23,6 @@ on_pop_assembled = {
 # From = planet abducted from
 on_pop_abducted  = {
 	events = {
-        # TODO: Resettle abducted pop onto purge world.
-        # resettle.30
+        pp.30
 	}
 }

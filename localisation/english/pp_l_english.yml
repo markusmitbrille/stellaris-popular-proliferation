@@ -19,15 +19,15 @@
 
  pp_relocation_drive_active:0 "Active"
  pp_relocation_drive_active_name:0 "Relocation Drive Active"
- pp_relocation_drive_active_desc:1 "The instinct has been awakened.\n\n§ENew £pops£ §Y$POPS$§! on planets without a $FREE_JOB$ will automatically relocate, using up £food£ §Y$food$§!§!"
+ pp_relocation_drive_active_desc:1 "The instinct has been awakened.\n\n§ENew £pops£ §Y$POPS$§! on planets without a $FREE_JOB$ will automatically relocate, using up £energy£ §Y$energy$§!§!"
 
  pp_purge_world:0 "Purge World"
- pp_purge_world_desc:1 "This world has been turned into an engine for the extermination of xenos. It is covered with concentration camps, processing facilities and paramilitary law enforcement complexes."
- pp_col_purge_world:0 "Purge World"
- pp_col_purge_world_desc:1 "An entire world dedicated to one singular task - the eradication of undesirables."
+ pp_purge_world_desc:1 "This world has been turned into a hub for the integration of newly acquired xenos. Abducted pops will be relocated here and onto other Purge Worlds."
+
  pp_decision_purge_world:0 "Create Purge World"
- pp_decision_purge_world_desc:1 "Turns the entire planet into a purge world. The high concentration of Undesirables increases £crime£ §Y$MOD_PLANET_CRIME_MULT$§!.\n\nUndesirables will be relocated from normal worlds to purge worlds over time."
- pp_decision_purge_world_effects_short:0 "Increases £crime£ §Y$MOD_PLANET_CRIME_MULT$§!\n\n§YUndesirables§! will be relocated here"
+ pp_decision_purge_world_desc:1 "Turns the entire planet into a hub for the integration of newly acquired xenos - abductees will be relocated here, among other Purge Worlds."
+ pp_decision_purge_world_effects_short:0 "§YAbductees§! will be relocated here, among other Purge Worlds"
+
  pp_decision_abolish_purge_world:0 "Abolish Purge World"
- pp_decision_abolish_purge_world_desc:1 "This planet's special status as a purge world is removed, allowing £crime£ §Y$MOD_PLANET_CRIME_MULT$§! to sink."
- pp_decision_abolish_purge_world_effects_short:0 "£crime£ §Y$MOD_PLANET_CRIME_MULT$§! returns to normal levels"
+ pp_decision_abolish_purge_world_desc:1 "This planet's special status as a purge world is removed - it will no longer receive special consideration as a destination for abductees."
+ pp_decision_abolish_purge_world_effects_short:0 "§YAbductees§! will only be relocated here if there are no other Purge Worlds"

@@ -1,5 +1,4 @@
-# # TODO: Legacy code, needs integration
-# pp_purge_world = {
-# 	icon = "gfx/interface/icons/planet_modifiers/pm_penal_colony.dds"
-# 	icon_frame = 2
-# }
+pp_purge_world = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_penal_colony.dds"
+	icon_frame = 2
+}

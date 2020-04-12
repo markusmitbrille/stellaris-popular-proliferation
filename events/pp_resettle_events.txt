@@ -1,425 +1,374 @@
-# namespace = resettle
+namespace = pp
 
-# # TODO: Legacy code, needs integration
-# # migrate non-machine pop
-# pop_event = {
-#     id = resettle.10
-#     hide_window = yes
-#     is_triggered_only = yes
+# reroute to pop
+planet_event = {
+	id = pp.10
+    hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			pop_event = { id = pp.11 }
+		}
+	}
+}
 
-#     trigger = {
-#         # only regular machine empires relocate
-#         owner = { is_country_type = default }
-#         owner = { is_machine_empire = no }
+# relocate hive pop
+pop_event = {
+    id = pp.11
+    hide_window = yes
+    is_triggered_only = yes
 
-#         # only migrate if there are other pops on the planet
-#         planet = { num_pops > 1 }
+    trigger = {
+		exists = owner
+		is_gestalt = yes
 
-#         # exclude pops who recently migrated
-#         NOT = { has_pop_flag = pp_pop_recently_migrated }
+		# policy active
+		owner = { has_policy_flag = pp_relocation_drive_active }
 
-#         # exclude pops that are being purged, assimilated or enslaved
-#         is_being_purged = no
-#         is_being_assimilated = no
-#         is_enslaved = no
+		# only migrate unemployed
+		is_unemployed = yes
 
-#         # exclude robots without full rights
-#         OR = {
-#             is_robot_pop = no
-#             owner = { has_policy_flag = ai_full_rights }
-#         }
-#     }
+        # only relocate when resource cost can be paid
+        owner = { has_resource = { type = energy amount > 100 } }
+
+		# only migrate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
+        # exclude pops that are being purged, assimilated or enslaved
+        is_being_purged = no
+        is_being_assimilated = no
+    }
     
-# 	immediate = {
-#         # log = "PP::resettle.10([This.GetName])"
+	immediate = {
+        # log = "PP::pp.10([This.GetName])"
         
-#         random_list = {
-#             # nothing happens
-#             5000 = {  }
+		# set relocating flag
+		set_pop_flag = pp_pop_is_relocating
 
-#             # migrate
-#             1 = {
-#                 # no emigration from planets with plentiful housing
-#                 modifier = { factor = 0.00000	planet = { free_housing >  20 } }
-#                 modifier = { factor = 0.01004	planet = { free_housing =  20 } }
-#                 modifier = { factor = 0.01648	planet = { free_housing =  19 } }
-#                 modifier = { factor = 0.02698	planet = { free_housing =  18 } }
-#                 modifier = { factor = 0.04397	planet = { free_housing =  17 } }
-#                 modifier = { factor = 0.07114	planet = { free_housing =  16 } }
-#                 modifier = { factor = 0.11379	planet = { free_housing =  15 } }
-#                 modifier = { factor = 0.17880	planet = { free_housing =  14 } }
-#                 modifier = { factor = 0.27364	planet = { free_housing =  13 } }
-#                 modifier = { factor = 0.40341	planet = { free_housing =  12 } }
-#                 modifier = { factor = 0.56631	planet = { free_housing =  11 } }
-#                 modifier = { factor = 0.75000	planet = { free_housing =  10 } }
-#                 modifier = { factor = 0.93369	planet = { free_housing =   9 } }
-#                 modifier = { factor = 1.09659	planet = { free_housing =   8 } }
-#                 modifier = { factor = 1.22636	planet = { free_housing =   7 } }
-#                 modifier = { factor = 1.32120	planet = { free_housing =   6 } }
-#                 modifier = { factor = 1.38621	planet = { free_housing =   5 } }
-#                 modifier = { factor = 1.42886	planet = { free_housing =   4 } }
-#                 modifier = { factor = 1.45603	planet = { free_housing =   3 } }
-#                 modifier = { factor = 1.47302	planet = { free_housing =   2 } }
-#                 modifier = { factor = 1.48352	planet = { free_housing =   1 } }
-#                 modifier = { factor = 1.48996	planet = { free_housing =   0 } }
-#                 modifier = { factor = 1.50000	planet = { free_housing <   0 } }
+		# log = "PP::'Relocating [This.GetName]!'"
 
-#                 # no emigration from planets with plentiful jobs
-#                 modifier = { factor = 0.00000	planet = { free_jobs >  20 } }
-#                 modifier = { factor = 0.01339	planet = { free_jobs =  20 } }
-#                 modifier = { factor = 0.02197	planet = { free_jobs =  19 } }
-#                 modifier = { factor = 0.03597	planet = { free_jobs =  18 } }
-#                 modifier = { factor = 0.05862	planet = { free_jobs =  17 } }
-#                 modifier = { factor = 0.09485	planet = { free_jobs =  16 } }
-#                 modifier = { factor = 0.15172	planet = { free_jobs =  15 } }
-#                 modifier = { factor = 0.23841	planet = { free_jobs =  14 } }
-#                 modifier = { factor = 0.36485	planet = { free_jobs =  13 } }
-#                 modifier = { factor = 0.53788	planet = { free_jobs =  12 } }
-#                 modifier = { factor = 0.75508	planet = { free_jobs =  11 } }
-#                 modifier = { factor = 1.00000	planet = { free_jobs =  10 } }
-#                 modifier = { factor = 1.24492	planet = { free_jobs =   9 } }
-#                 modifier = { factor = 1.46212	planet = { free_jobs =   8 } }
-#                 modifier = { factor = 1.63515	planet = { free_jobs =   7 } }
-#                 modifier = { factor = 1.76159	planet = { free_jobs =   6 } }
-#                 modifier = { factor = 1.84828	planet = { free_jobs =   5 } }
-#                 modifier = { factor = 1.90515	planet = { free_jobs =   4 } }
-#                 modifier = { factor = 1.94138	planet = { free_jobs =   3 } }
-#                 modifier = { factor = 1.96403	planet = { free_jobs =   2 } }
-#                 modifier = { factor = 1.97803	planet = { free_jobs =   1 } }
-#                 modifier = { factor = 1.98661	planet = { free_jobs =   0 } }
-#                 modifier = { factor = 2.00000	planet = { free_jobs <   0 } }
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
 
-#                 # rulers seldom migrate
-#                 modifier = { factor = 0.10000 is_pop_category = ruler }
+						# prioritize planets with higher habitability
+						habitability = { who = root value = 1.00 }
 
-#                 # specialists occasionally migrate
-#                 modifier = { factor = 0.50000 is_pop_category = specialist }
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
 
-#                 # unemployed pops are especially eager to migrate
-#                 modifier = { factor = 5.00000 is_unemployed = yes }
-                
-#                 # set migrating flag
-#                 set_pop_flag = pp_pop_is_migrating
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (100)!'"
 
-#                 # log = "PP::'Migrating [This.GetName]!'"
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
 
-#                 # migration within the same country
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
+						# prioritize planets with higher habitability
+						habitability = { who = root value > 0.80 }
 
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
 
-#                             # prioritize planets in same country
-#                             owner = { is_same_empire = root.owner }
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (80-100)!'"
 
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
 
-#                             # not under siege
-#                             has_orbital_bombardment = no
+						# prioritize planets with higher habitability
+						habitability = { who = root value > 0.60 }
 
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value = 1.0 }
-#                         }
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
+	
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (60-80)!'"
+						
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
+
+						# prioritize planets with higher habitability
+						habitability = { who = root value > 0.40 }
+
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
+
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (40-60)!'"
+
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
+
+						# prioritize planets with higher habitability
+						habitability = { who = root value > 0.20 }
+
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
+
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (20-40)!'"
+
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			owner = {
+				random_owned_planet = {
+					limit = {
+						free_jobs > 0
+
+						# exclude current planet
+						NOT = { is_same_value = root.planet }
+	
+						# only colonized planets
+						is_colony = yes
+						is_under_colonization = no 
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
+
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (0-20)!'"
+
+					owner = { add_resource = { energy = -100 } }
+					resettle_pop = { pop = root planet = this }
+					root = { remove_pop_flag = pp_pop_is_relocating }
+				}
+			}
+		}
+
+		# no relocation destination found
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			
+			# log = "PP::'Relocation failed, no suitable destination found!'"
+
+			# remove relocating flag
+			remove_pop_flag = pp_pop_is_relocating
+		}
+    }
+}
+
+# reroute to pop
+planet_event = {
+	id = pp.20
+    hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			pop_event = { id = pp.21 }
+		}
+	}
+}
+
+# relocate machine pop
+pop_event = {
+    id = pp.21
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+		exists = owner
+		is_gestalt = yes
+
+		# policy active
+		owner = { has_policy_flag = pp_relocation_imperative_active }
+
+		# only migrate unemployed
+		is_unemployed = yes
+
+        # only relocate when resource cost can be paid
+        owner = { has_resource = { type = energy amount > 100 } }
+
+		# only migrate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
+        # exclude pops that are being purged, assimilated or enslaved
+        is_being_purged = no
+        is_being_assimilated = no
+    }
     
-#                         # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (100)!'"
-                            
-#                         # resettle and remove flag
-#                         resettle_pop = { pop = root planet = this }
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                     }
-#                 }
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
+	immediate = {
+        # log = "PP::pp.20([This.GetName])"
 
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
+		# set relocating flag
+		set_pop_flag = pp_pop_is_relocating
 
-#                             # prioritize planets in same country
-#                             owner = { is_same_empire = root.owner }
+		# log = "PP::'Relocating [This.GetName]!'"
+		owner = {
+			random_owned_planet = {
+				limit = {
+					free_jobs > 0
 
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
+					# exclude current planet
+					NOT = { is_same_value = root.planet }
 
-#                             # not under siege
-#                             has_orbital_bombardment = no
+					# only colonized planets
+					is_colony = yes
+					is_under_colonization = no 
 
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value >= 0.8 }
-#                         }
+					# not under siege
+					has_orbital_bombardment = no
+				}
+
+				# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+
+                owner = { add_resource = { energy = -100 } }
+				resettle_pop = { pop = root planet = this }
+				root = { remove_pop_flag = pp_pop_is_relocating }
+			}
+		}
+		
+		# no relocation destination found
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			
+			# log = "PP::'Relocation failed, no suitable destination found!'"
+
+			# remove relocating flag
+			remove_pop_flag = pp_pop_is_relocating
+		}
+    }
+}
+
+# relocate abductee
+pop_event = {
+    id = pp.30
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+		exists = owner
+
+		# only relocate if there are other pops on the planet
+        planet = { num_pops > 1 }
+
+        # only relocate pops that are not already on a purge world
+        planet = { NOT = { has_modifier = pp_purge_world } }
+    }
     
-#                         # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (80-100)!'"
-                            
-#                         # resettle and remove flag
-#                         resettle_pop = { pop = root planet = this }
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                     }
-#                 }
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
+	immediate = {
+        # log = "PP::pp.30([This.GetName])"
 
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
+		# set relocating flag
+		set_pop_flag = pp_pop_is_relocating
 
-#                             # prioritize planets in same country
-#                             owner = { is_same_empire = root.owner }
+		# log = "PP::'Relocating [This.GetName]!'"
+		owner = {
+			random_owned_planet = {
+				limit = {
+					has_modifier = pp_purge_world
 
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
+					# only colonized planets
+					is_colony = yes
+					is_under_colonization = no 
 
-#                             # not under siege
-#                             has_orbital_bombardment = no
+					# exclude current planet
+					NOT = { is_same_value = root.planet }
 
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value >= 0.6 }
-#                         }
-    
-#                         # log = "PP::'Migrating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (60-80)!'"
-                            
-#                         # resettle and remove flag
-#                         resettle_pop = { pop = root planet = this }
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                     }
-#                 }
+					# not under siege
+					has_orbital_bombardment = no
+				}
 
-#                 # migration to other empires with migration treaty
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
+				# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
+				resettle_pop = { pop = root planet = this }
+				root = { remove_pop_flag = pp_pop_is_relocating }
+			}
+		}
+		
+		# no relocation destination found
+		if = { 
+			limit = { has_pop_flag = pp_pop_is_relocating }
+			
+			# log = "PP::'Relocation failed, no suitable destination found!'"
 
-#                             # include planets in other countries with migration access
-#                             owner = { has_migration_access = root.owner }
-
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
-
-#                             # not under siege
-#                             has_orbital_bombardment = no
-
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value = 1.0 }
-#                         }
-    
-#                         # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (100)!'"
-                            
-#                         # resettle and remove flag
-#                         resettle_pop = { pop = root planet = this }
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                     }
-#                 }
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
-
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
-
-#                             # include planets in other countries with migration access
-#                             owner = { has_migration_access = root.owner }
-
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
-
-#                             # not under siege
-#                             has_orbital_bombardment = no
-
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value >= 0.8 }
-#                         }
-    
-#                         # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (80-100)!'"
-                            
-#                         # resettle and remove flag
-#                         resettle_pop = { pop = root planet = this }
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                     }
-#                 }
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-#                     random_planet = {
-#                         limit = {
-#                             # only colonized planets
-#                             is_colony = yes
-#                             is_under_colonization = no 
-
-#                             # exclude current planet
-#                             NOT = { is_same_value = root.planet }
-
-#                             # include planets in other countries with migration access
-#                             owner = { has_migration_access = root.owner }
-
-#                             # only migrate to planets with free jobs and housing
-#                             free_jobs > 0
-#                             free_housing > 0
-
-#                             # not under siege
-#                             has_orbital_bombardment = no
-
-#                             # prioritize planets with higher habitability
-#                             habitability = { who = root value >= 0.6 }
-#                         }
-    
-#                         # log = "PP::'Migrating [Root.GetName] to [This.Owner.GetAdj] [This.GetClassName] Planet [This.GetName] (60-80)!'"
-                            
-#                         # resettle
-#                         resettle_pop = { pop = root planet = this }
-
-#                         # change migrating flag for timeout flag
-#                         root = { remove_pop_flag = pp_pop_is_migrating }
-#                         root = { set_timed_pop_flag = { flag = pp_pop_recently_migrated days = 180 } }
-#                     }
-#                 }
-
-#                 # no migration destination found
-#                 if = { 
-#                     limit = { has_pop_flag = pp_pop_is_migrating }
-                   
-#                     # log = "PP::'Migration failed, no suitable destination found!'"
-
-#                     # remove migrating flag
-#                     remove_pop_flag = pp_pop_is_migrating
-#                 }
-#             }
-#         }
-#     }
-# }
-
-# # TODO: Legacy code, needs integration
-# # relocate machine pop
-# pop_event = {
-#     id = resettle.20
-#     hide_window = yes
-#     is_triggered_only = yes
-
-#     trigger = {
-#         # player only event
-#         owner = { is_ai = no }
-
-#         # only default machine empires relocate
-#         owner = { is_country_type = default }
-#         owner = { is_machine_empire = yes }
-
-#         # only relocate if there are other pops on the planet
-#         planet = { num_pops > 1 }
-
-#         # only relocate when policy is active
-#         owner = { has_policy_flag = pp_relocation_imperative_active }
-        
-#         # only relocate when resource cost can be paid
-#         owner = { has_resource = { type = energy amount > 50 } }
-
-#         # only relocate simple drones
-#         is_pop_category = simple_drone
-
-#         # only relocate unemployed pops or those on overcrowded planets
-#         OR = {
-#             is_unemployed = yes
-#             planet = { free_housing < 0 }
-#         }
-        
-#         # exclude pops that are being purged or assimilated
-#         is_being_purged = no
-#         is_being_assimilated = no        
-#     }
-    
-# 	immediate = {
-#         # log = "PP::resettle.20([This.GetName])"
-
-#         owner = {
-#             random_owned_planet = {
-#                 limit = {
-#                     free_jobs > 0
-#                     free_housing > 0
-#                     is_under_colonization = no 
-#                 }
-
-#                 # log = "PP::'Relocating Machine [Root.GetName] to [This.GetName]!'"
-            
-#                 # pay cost
-#                 owner = { add_resource = { energy = -50 } }
-                
-#                 # relocate
-#                 resettle_pop = { pop = root planet = this }
-#             }
-#         }
-#     }
-# }
-
-# # TODO: Legacy code, needs integration
-# # settle abductee
-# pop_event = {
-#     id = resettle.30
-#     hide_window = yes
-#     is_triggered_only = yes
-
-#     trigger = {
-#         # player only event
-#         owner = { is_ai = no }
-
-#         # only default empires relocate
-#         owner = { is_country_type = default }
-        
-#         # only relocate if there are other pops on the planet
-#         planet = { num_pops > 1 }
-
-#         # only relocate when resource cost can be paid
-#         owner = { has_resource = { type = energy amount > 25 } }
-
-#         # only relocate pops that are being purged on a non-purge world
-#         planet = { NOT = { has_modifier = pp_purge_world } }
-#         is_being_purged = yes
-#         is_being_assimilated = no
-#     }
-    
-# 	immediate = {
-#         # log = "PP::resettle.30([This.GetName])"
-
-#         owner = {
-#             random_owned_planet = {
-#                 limit = {
-#                     has_modifier = pp_purge_world
-#                 }
-
-#                 # log = "PP::'Relocating Undesirable [Root.GetName] to [This.GetName]!'"
-            
-#                 # pay cost
-#                 owner = { add_resource = { energy = -25 } }
-                
-#                 # relocate
-#                 resettle_pop = { pop = root planet = this }
-#             }
-#         }
-#     }
-# }
+			# remove relocating flag
+			remove_pop_flag = pp_pop_is_relocating
+		}
+    }
+}

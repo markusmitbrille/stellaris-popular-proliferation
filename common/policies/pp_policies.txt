@@ -12,6 +12,14 @@ pp_relocation_imperative = {
 		policy_flags = {
 			pp_relocation_imperative_dormant
 		}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { has_resource = { type = energy amount > 1000 } }
+			}
+		}
 	}
 
 	option = {
@@ -19,6 +27,14 @@ pp_relocation_imperative = {
 
 		policy_flags = {
 			pp_relocation_imperative_active
+		}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_resource = { type = energy amount > 1000 }
+			}
 		}
 	}
 }
@@ -34,6 +50,14 @@ pp_relocation_drive = {
 		policy_flags = {
 			pp_relocation_drive_dormant
 		}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { has_resource = { type = energy amount > 1000 } }
+			}
+		}
 	}
 
 	option = {
@@ -41,6 +65,14 @@ pp_relocation_drive = {
 
 		policy_flags = {
 			pp_relocation_drive_active
+		}
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_resource = { type = energy amount > 1000 }
+			}
 		}
 	}
 }
