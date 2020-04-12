@@ -1,14 +1,3 @@
-# A pop has finished growing
-# This = Planet scope
-# From = Country
-# FromFrom = Pop
-on_pop_grown = {
-	events = {
-		# IDEA: Resettle pop based on policy.
-        # resettle.10
-	}
-}
-
 # A pop has finished assembling
 # This = Planet scope
 # From = Country
