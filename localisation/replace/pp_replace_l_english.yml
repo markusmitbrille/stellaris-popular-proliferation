@@ -1,0 +1,17 @@
+﻿l_english:
+ PLANET_STABILITY_DESC:0 "§E£stability£ §Y$PLANET_STABILITY_TITLE$§! is a measure of the overall political stability of the planet. It is primarily determined by the overall £happiness£ §YPop Approval Rating§! of the population.\n\nStability can be reduced by conditions such as £amenities£ §RLow Amenities§! and £crime£ §RCrime§!. A planet with high $PLANET_STABILITY_TITLE$ will have increased resource production, while a planet with low $PLANET_STABILITY_TITLE$ will suffer penalties and may experience negative events or even a full-scale §RRevolt§!.§!"
+
+ PLANET_STABILITY_NO_HAPPINESS_DESC:1 "§E§YStability§! is a measure of the overall functionality of the drone population on the planet. It is primarily determined by ensuring that all drones have their basic needs for §Y$PLANET_AMENITIES_TITLE$§! fulfilled. A planet with high $PLANET_STABILITY_TITLE$ will have increased resource production, while a planet with low $PLANET_STABILITY_TITLE$ will suffer penalties and may experience negative events or even a full-scale §RRevolt§! if there are non-drone Pops present on the planet.§!"
+
+ PLANET_HOUSING_DESC:1 "§E§Y$PLANET_HOUSING_TITLE$§! represents planetary infrastructure dedicated to housing the population. A Planet that does not meet the §YHousing§! needs of its population will suffer penalties to £pops£ §Y$MOD_POP_GROWTH_SPEED$§! and may experience §YEmigration§!. You can increase §YHousing§! by constructing additional £district£ §YDistricts§! on the planet.§!"
+ 
+ PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will suffer penalties to £pops£ §Y$MOD_POP_GROWTH_SPEED$§!.§!"
+
+ planet_growth_discouraged:0 "Growth Discouraged"
+ planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth, resulting in an increase to emigration."
+ decision_discourage_growth:0 "Discourage Planetary Growth"
+ decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Measures will then be taken to voluntarily curtail population growth, resulting in a push for emigration."
+ decision_discourage_growth_effects_short:0 "Increases $MOD_PLANET_EMIGRATION_PUSH_ADD$ on the planet\n\nIncreases §RPop Upkeep§! while active"
+ decision_end_discourage_growth:0 "End Growth Discouragement"
+ decision_end_discourage_growth_desc:1 "This will remove the political measures that were taken on this world to discourage population growth. Emigration will return to normal levels."
+ decision_end_discourage_growth_effects_short:0 "$MOD_PLANET_EMIGRATION_PUSH_ADD$ returns to normal\n\nReduces §GPop Upkeep§!"
