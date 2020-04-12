@@ -1,28 +1,72 @@
-planet_housing_no_happiness_low = {
-	pop_growth_speed_reduction = 1.0 # results in 1.0 at 50% of required housing
-	planet_emigration_push_add = 100 # results in 100 at 50% of required housing
-}
+###########
+# HOUSING #
+###########
 
-planet_housing_no_happiness_high = {
-	planet_immigration_pull_mult = 0.25
+# housing modifiers scale from 50% - 200% of housing requirements fulfilled
+# low modifiers are applied fully when 50% of required housing is provided
+# high modifiers are applied fully when 200% of required housing is provided
+# no modifiers are applied when 100% of required housing is provided
+# overcrowding is a flat modifier, applied when less than 100% of required housing is provided
+
+planet_housing_no_happiness_low = {
+	pop_growth_speed_reduction = 1.0
+	planet_immigration_pull_mult = -0.5
 }
 
 planet_housing_low = {
-	pop_growth_speed_reduction = 1.0 # results in 1.0 at 50% of required housing
-	planet_emigration_push_add = 100 # results in 100 at 50% of required housing
+	pop_growth_speed_reduction = 1.0
+	planet_immigration_pull_mult = -0.5
+}
+
+planet_housing_no_happiness_high = {
+	planet_immigration_pull_mult = 1.0
 }
 
 planet_housing_high = {
-	planet_immigration_pull_mult = 0.25
+	planet_immigration_pull_mult = 1.0
 }
 
-# Overcrowding
-planet_overcrowded = {
-	# no constant overcrowding malus
+planet_overcrowded = { }
+
+#############
+# STABILITY #
+#############
+
+# stability modifiers scale from 0 - 100 stability
+# low modifiers are applied fully at 0
+# high modifiers are applied fully at 100
+# no modifiers are applied at 50
+
+# the no_happiness stability modifiers don't come with migration effects in vanilla, so I didn't touch them here
+
+# planet_stability_no_happiness_low = {
+# 	planet_jobs_produces_mult = -0.5
+# }
+
+# planet_stability_no_happiness_high = {
+# 	planet_jobs_produces_mult = 0.30
+# }
+
+planet_stability_low = {
+	planet_jobs_produces_mult = -0.5
+	trade_value_mult = -0.5
+	planet_emigration_push_add = 100
 }
 
-# IDEA: These vanilla modifiers might come in useful for balancing later on.
-# Per missing job
+planet_stability_high = {
+	planet_jobs_produces_mult = 0.30
+	trade_value_mult = 0.30
+	planet_immigration_pull_mult = 0.40
+}
+
+########
+# JOBS #
+########
+
+# job modifiers are applied per missing/free job
+
+# these are probably fine as they are, but I'll leave them here for future reference
+
 # planet_employment_no_happiness_low = {
 # 	planet_emigration_push_add = 5
 # }
@@ -38,3 +82,14 @@ planet_overcrowded = {
 # planet_employment_high = {
 # 	planet_immigration_pull_add = 5
 # }
+
+#####################
+# DISCOURAGE GROWTH #
+#####################
+
+planet_growth_discouraged = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
+	icon_frame = 2
+	planet_pops_upkeep_mult = 0.20
+	planet_emigration_push_add = 100
+}
