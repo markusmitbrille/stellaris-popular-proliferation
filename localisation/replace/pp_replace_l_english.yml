@@ -3,9 +3,9 @@
 
  PLANET_STABILITY_NO_HAPPINESS_DESC:1 "§E§YStability§! is a measure of the overall functionality of the drone population on the planet. It is primarily determined by ensuring that all drones have their basic needs for §Y$PLANET_AMENITIES_TITLE$§! fulfilled. A planet with high $PLANET_STABILITY_TITLE$ will have increased resource production, while a planet with low $PLANET_STABILITY_TITLE$ will suffer penalties and may experience negative events or even a full-scale §RRevolt§! if there are non-drone Pops present on the planet.§!"
 
- PLANET_HOUSING_DESC:1 "§E§Y$PLANET_HOUSING_TITLE$§! represents planetary infrastructure dedicated to housing the population. A Planet that does not meet the §YHousing§! needs of its population will suffer penalties to £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§! and may experience §YEmigration§!. You can increase §YHousing§! by constructing additional £district£ §YDistricts§! on the planet.§!"
+ PLANET_HOUSING_DESC:1 "§E§Y$PLANET_HOUSING_TITLE$§! represents planetary infrastructure dedicated to housing the population. A Planet that does not meet the §YHousing§! needs of its population will experience §Y$MOD_POP_GROWTH_SPEED_REDUCTION$§!, §Y$MOD_PLANET_POP_ASSEMBLY_REDUCTION$§! and §YEmigration§!. You can increase §YHousing§! by constructing additional £district£ §YDistricts§! on the planet.§!"
  
- PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will suffer penalties to £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§!.§!"
+ PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will experience §Y$MOD_POP_GROWTH_SPEED_REDUCTION$§!, §Y$MOD_PLANET_POP_ASSEMBLY_REDUCTION$§! and §YEmigration§!.§!"
 
  # discourage growth
 
@@ -40,11 +40,11 @@
 
  decision_enact_population_control_gestalt:1 "Reroute Drone Production"
  decision_enact_population_control_gestalt_desc:0 "There is no need for further Drones on this planet at the moment. New Drones will be relocated to other worlds, when possible."
- decision_enact_population_control_gestalt_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! and slows down §Y$planet_pop_assemblers$§! on the planet"
+ decision_enact_population_control_gestalt_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nNew Machine Pops will be relocated to other planets without this modifier"
 
  decision_end_population_control_gestalt:1 "Resume Drone Production"
  decision_end_population_control_gestalt_desc:1 "Drones are required once more. New Drones will be deployed on this world again."
- decision_end_population_control_gestalt_effects_short:1 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! and ramps up §Y$planet_pop_assemblers$§! on the planet"
+ decision_end_population_control_gestalt_effects_short:1 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nNew Machine Pops will be deployed here"
 
  # robot assembly
 
@@ -53,8 +53,8 @@
  
  decision_enact_robot_assembly_control:0 "Reroute Robot Assembly"
  decision_enact_robot_assembly_control_desc:0 "Deploy new Robot, Droid, and Synthetic Pops on other worlds, when possible."
- decision_enact_robot_assembly_control_effects_short:0 "New robots will be relocated to other planets without this modifier\n\nSlows down §Y$planet_pop_assemblers$§! on the planet"
+ decision_enact_robot_assembly_control_effects_short:0 "New Robot, Droid, and Synthetic Pops will be relocated to other planets without this modifier"
  
  decision_end_robot_assembly_control:0 "Resume Robot Assembly"
  decision_end_robot_assembly_control_desc:0 "Resumes deployment of new Robot, Droid, and Synthetic Pops on this planet."
- decision_end_robot_assembly_control_effects_short:0 "Ramps up §Y$planet_pop_assemblers$§! on the planet"
+ decision_end_robot_assembly_control_effects_short:0 "New Robot, Droid, and Synthetic Pops will be deployed here"

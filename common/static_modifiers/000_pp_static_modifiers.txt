@@ -10,11 +10,13 @@
 
 planet_housing_no_happiness_low = {
 	pop_growth_speed_reduction = 1.0
+	planet_pop_assembly_reduction = 1.0
 	planet_immigration_pull_mult = -0.5
 }
 
 planet_housing_low = {
 	pop_growth_speed_reduction = 1.0
+	planet_pop_assembly_reduction = 1.0
 	planet_immigration_pull_mult = -0.5
 }
 
@@ -110,11 +112,9 @@ planet_population_control_gestalt = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
 	icon_frame = 2
 	planet_emigration_push_add = 100
-	planet_pop_assembly_reduction = 0.50
 }
 
 planet_robot_assembly_control = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
 	icon_frame = 2
-	planet_pop_assembly_reduction = 0.50
 }

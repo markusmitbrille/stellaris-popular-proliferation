@@ -261,6 +261,22 @@ ruler = {
 		}
 		pop_growth_speed = -0.15
 	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_mechanical_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.04
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_machine_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.0625
+	}
 }
 
 specialist = {
@@ -578,6 +594,22 @@ specialist = {
 			is_organic_species = yes
 		}
 		pop_growth_speed = -0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_mechanical_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.04
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_machine_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.0625
 	}
 }
 
@@ -942,5 +974,21 @@ worker = {
 			is_organic_species = yes
 		}
 		pop_growth_speed = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_mechanical_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.04
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_machine_empire = yes }
+			is_robotic_species = yes
+		}
+		job_roboticist_per_pop = 0.0625
 	}
 }
