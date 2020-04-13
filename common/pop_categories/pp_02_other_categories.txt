@@ -49,22 +49,6 @@ robot_servant = {
 		}
 		pop_growth_speed = 0.05
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
-	}
 }
 
 slave = {
@@ -252,22 +236,6 @@ slave = {
 		}
 		pop_growth_speed = 0.05
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
-	}
 }
 
 bio_trophy = {
@@ -345,22 +313,6 @@ bio_trophy = {
 			is_organic_species = yes
 		}
 		pop_growth_speed = 0.05
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
 	}
 }
 
@@ -621,22 +573,6 @@ criminal = {
 		}
 		pop_growth_speed = 0.05
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
-	}
 }
 
 deviant_drone = {
@@ -895,22 +831,6 @@ deviant_drone = {
 		}
 		pop_growth_speed = 0.05
 	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
-	}
 }
 
 corrupt_drone = {
@@ -1168,22 +1088,6 @@ corrupt_drone = {
 			is_organic_species = yes
 		}
 		pop_growth_speed = 0.05
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_mechanical_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.04
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			owner = { is_machine_empire = yes }
-			is_robotic_species = yes
-		}
-		job_roboticist_per_pop = 0.0625
 	}
 }
 
