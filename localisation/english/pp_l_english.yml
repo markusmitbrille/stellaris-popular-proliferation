@@ -11,7 +11,7 @@
  pp_relocation_imperative_active_desc:1 "Subroutine is activated and running.\n\n§ENew £pops£ §Y$POPS$§! on planets without a $FREE_JOB$ will automatically relocate, using up £energy£ §Y$energy$§!§!"
 
  pp_purge_world:0 "Purge World"
- pp_purge_world_desc:1 "This world has been turned into a hub for the integration of newly acquired xenos. Abducted pops will be relocated here and onto other Purge Worlds."
+ pp_purge_world_desc:1 "This world has been turned into a hub for the integration - or extermination - of newly acquired xenos. Abducted pops will be relocated here and onto other Purge Worlds."
 
  pp_decision_purge_world:0 "Create Purge World"
  pp_decision_purge_world_desc:1 "Turns the entire planet into a hub for the integration - or extermination - of newly acquired xenos. Abductees will always be transported to Purge Worlds."
