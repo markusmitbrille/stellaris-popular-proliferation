@@ -3,15 +3,39 @@
 
  PLANET_STABILITY_NO_HAPPINESS_DESC:1 "§E§YStability§! is a measure of the overall functionality of the drone population on the planet. It is primarily determined by ensuring that all drones have their basic needs for §Y$PLANET_AMENITIES_TITLE$§! fulfilled. A planet with high $PLANET_STABILITY_TITLE$ will have increased resource production, while a planet with low $PLANET_STABILITY_TITLE$ will suffer penalties and may experience negative events or even a full-scale §RRevolt§! if there are non-drone Pops present on the planet.§!"
 
- PLANET_HOUSING_DESC:1 "§E§Y$PLANET_HOUSING_TITLE$§! represents planetary infrastructure dedicated to housing the population. A Planet that does not meet the §YHousing§! needs of its population will suffer penalties to £pops£ §Y$MOD_POP_GROWTH_SPEED$§! and may experience §YEmigration§!. You can increase §YHousing§! by constructing additional £district£ §YDistricts§! on the planet.§!"
+ PLANET_HOUSING_DESC:1 "§E§Y$PLANET_HOUSING_TITLE$§! represents planetary infrastructure dedicated to housing the population. A Planet that does not meet the §YHousing§! needs of its population will suffer penalties to £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§! and may experience §YEmigration§!. You can increase §YHousing§! by constructing additional £district£ §YDistricts§! on the planet.§!"
  
- PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will suffer penalties to £pops£ §Y$MOD_POP_GROWTH_SPEED$§!.§!"
+ PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will suffer penalties to £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§!.§!"
 
  planet_growth_discouraged:0 "Growth Discouraged"
- planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth, resulting in an increase to emigration."
+ planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth. Approval ratings will take a hit and emigration might occur."
+
  decision_discourage_growth:0 "Discourage Planetary Growth"
- decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Measures will then be taken to voluntarily curtail population growth, resulting in a push for emigration."
- decision_discourage_growth_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nIncreases §RPop Upkeep§! while active"
+ decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Measures will then be taken to voluntarily curtail population growth. Approval ratings will take a hit and emigration might occur."
+ decision_discourage_growth_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
+
  decision_end_discourage_growth:0 "End Growth Discouragement"
- decision_end_discourage_growth_desc:1 "This will remove the political measures that were taken on this world to discourage population growth. Emigration will return to normal levels."
- decision_end_discourage_growth_effects_short:0 "§Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! returns to normal\n\nReduces §GPop Upkeep§!"
+ decision_end_discourage_growth_desc:1 "This will remove the political measures that were taken on this world to discourage population growth. Emigration will return to normal levels, as will approval ratings."
+ decision_end_discourage_growth_effects_short:0 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nIncreases £happiness£ §Y$HAPPINESS$§!"
+
+ decision_enact_population_control:0 "Declare Population Controls"
+ decision_enact_population_control_desc:0 "Population growth must not be allowed to outstrip administrative capacity, even if it requires drastic measures."
+ decision_enact_population_control_effects_short:0 "Stops all £pop£ $POPULATION_GROWTH$ on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
+
+ planet_population_control:0 "Declared Population Controls"
+ planet_population_control_desc:0 "A limit on population growth has been declared."
+
+ decision_enact_population_control_gestalt:1 "Cease Drone Production"
+ decision_enact_population_control_gestalt_desc:0 "There is no need for further Drones on this planet at the moment."
+ decision_enact_population_control_gestalt_effects_short:0 "Stops all £pop£ $POPULATION_GROWTH$ on the planet."
+
+ planet_population_control_gestalt:1 "Drone Population Controls"
+ planet_population_control_gestalt_desc:1 "Drone production has stopped for now."
+
+ decision_end_population_control:0 "End Population Controls"
+ decision_end_population_control_desc:1 "Population planning will no longer enforce restrictive measures."
+ decision_end_population_control_effects_short:0 "£pop£ $POPULATION_GROWTH$ resumes on the planet\n\nIncreases £happiness£ §Y$HAPPINESS$§!"
+
+ decision_end_population_control_gestalt:1 "Continue Drone Production"
+ decision_end_population_control_gestalt_desc:1 "Drones are required once more."
+ decision_end_population_control_gestalt_effects_short:1 "£pop£ $POPULATION_GROWTH$ resumes on the planet"
