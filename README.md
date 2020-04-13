@@ -40,6 +40,10 @@ No Vanilla Files were harmed in the production of this mod.
 
 ... but some elements were:
 
++ Buildings:
+  + building_robot_assembly_plant
+  + building_machine_assembly_plant
+  + building_machine_assembly_complex
 + Defines:
   + OVERCROWDING_NO_GROWTH_THRESHOLD
   + OVERCROWDING_DECLINE_THRESHOLD
@@ -50,6 +54,9 @@ No Vanilla Files were harmed in the production of this mod.
   + MAX_EMIGRATION_PUSH
   + MAX_GROWTH_FROM_IMMIGRATION
   + MAX_GROWTH_PENALTY_FROM_EMIGRATION
++ Game Rules:
+  + can_pops_grow_on_planet
+  + can_pops_assemble_on_planet
 + Pop Categories:
   + ruler
   + specialist
@@ -64,9 +71,18 @@ No Vanilla Files were harmed in the production of this mod.
   + corrupt_drone
   + precursor
   + xeno_ward
-+ Buildings:
-  + building_robot_assembly_plant
-  + building_machine_assembly_plant
-  + building_machine_assembly_complex
++ Modifiers:
+  + planet_housing_no_happiness_low
+  + planet_housing_low
+  + planet_housing_no_happiness_high
+  + planet_housing_high
+  + planet_overcrowded
+  + planet_stability_low
+  + planet_stability_high
+  + planet_growth_discouraged
+  + planet_population_control
+  + planet_population_control_gestalt
+  + planet_robot_assembly_control
 + Events:
   + id [action.121]
++ Localisations were overwritten accordingly.
