@@ -58,7 +58,7 @@ building_robot_assembly_plant = {
 			exists = owner
 			owner = { is_mechanical_empire = yes }
 		}
-		job_roboticist_per_pop = 0.04
+		job_roboticist_per_pop = 0.02
 	}
 
 	resources = {
@@ -137,7 +137,7 @@ building_machine_assembly_plant = {
 	
 	planet_modifier = {
 		job_replicator_add = 1
-		job_replicator_per_pop = 0.0625
+		job_replicator_per_pop = 0.04
 	}
 	
 	resources = {
@@ -214,7 +214,7 @@ building_machine_assembly_complex = {
 	
 	planet_modifier = {
 		job_replicator_add = 3
-		job_replicator_per_pop = 0.0625
+		job_replicator_per_pop = 0.04
 	}
 	
 	resources = {
