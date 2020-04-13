@@ -32,7 +32,7 @@ pop_event = {
         # only relocate when resource cost can be paid
         owner = { has_resource = { type = energy amount > 100 } }
 
-		# only migrate if there are other pops on the planet
+		# only relocate if there are other pops on the planet
         planet = { num_pops > 1 }
 
         # exclude pops that are being purged, assimilated or enslaved
@@ -264,7 +264,7 @@ pop_event = {
         # only relocate when resource cost can be paid
         owner = { has_resource = { type = energy amount > 100 } }
 
-		# only migrate if there are other pops on the planet
+		# only relocate if there are other pops on the planet
         planet = { num_pops > 1 }
 
         # exclude pops that are being purged, assimilated or enslaved
