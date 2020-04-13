@@ -9,9 +9,15 @@ pp_decision_purge_world = {
 
 	potential = {
 		is_capital = no
-		owner = { is_country_type = default }
-		owner = { has_policy_flag = purge_allowed }
 		habitable_structure = no
+
+		# raiding allowed
+		OR = {
+			owner = { has_ascension_perk = ap_nihilistic_acquisition }
+			owner = { has_valid_civic = civic_barbaric_despoilers }
+		}
+
+		NOT = { has_modifier = pp_purge_world }
 	}
 
 	effect = {
