@@ -2,238 +2,6 @@ namespace = pp
 
 # reroute to pop
 planet_event = {
-	id = pp.10
-    hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		FROMFROM = {
-			pop_event = { id = pp.11 }
-		}
-	}
-}
-
-# relocate hive pop
-pop_event = {
-    id = pp.11
-    hide_window = yes
-    is_triggered_only = yes
-
-    trigger = {
-		exists = owner
-		is_gestalt = yes
-
-		# policy active
-		owner = { has_policy_flag = pp_relocation_drive_active }
-
-		# only relocate if there are no free jobs
-		planet = { free_jobs < 1 }
-
-        # only relocate when resource cost can be paid
-        owner = { has_resource = { type = energy amount > 100 } }
-
-		# only relocate if there are other pops on the planet
-        planet = { num_pops > 1 }
-
-        # exclude pops that are being purged, assimilated or enslaved
-        is_being_purged = no
-        is_being_assimilated = no
-    }
-    
-	immediate = {
-        # log = "PP::pp.10([This.GetName])"
-        
-		# set relocating flag
-		set_pop_flag = pp_pop_is_relocating
-
-		# log = "PP::'Relocating [This.GetName]!'"
-
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# prioritize planets with higher habitability
-						habitability = { who = root value = 1.00 }
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (100)!'"
-
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# prioritize planets with higher habitability
-						habitability = { who = root value > 0.80 }
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (80-100)!'"
-
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# prioritize planets with higher habitability
-						habitability = { who = root value > 0.60 }
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-	
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (60-80)!'"
-						
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# prioritize planets with higher habitability
-						habitability = { who = root value > 0.40 }
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (40-60)!'"
-
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# prioritize planets with higher habitability
-						habitability = { who = root value > 0.20 }
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (20-40)!'"
-
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			owner = {
-				random_owned_planet = {
-					limit = {
-						free_jobs > 0
-
-						# exclude current planet
-						NOT = { is_same_value = root.planet }
-	
-						# only colonized planets
-						is_colony = yes
-						is_under_colonization = no 
-	
-						# not under siege
-						has_orbital_bombardment = no
-					}
-
-					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName] (0-20)!'"
-
-					owner = { add_resource = { energy = -100 } }
-					resettle_pop = { pop = root planet = this }
-					root = { remove_pop_flag = pp_pop_is_relocating }
-				}
-			}
-		}
-
-		# no relocation destination found
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			
-			# log = "PP::'Relocation failed, no suitable destination found!'"
-
-			# remove relocating flag
-			remove_pop_flag = pp_pop_is_relocating
-		}
-    }
-}
-
-# reroute to pop
-planet_event = {
 	id = pp.20
     hide_window = yes
 	is_triggered_only = yes
@@ -273,12 +41,12 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::pp.20([This.GetName])"
+        log = "PP::pp.20([This.GetName])"
 
 		# set relocating flag
 		set_pop_flag = pp_pop_is_relocating
 
-		# log = "PP::'Relocating [This.GetName]!'"
+		log = "PP::'Relocating [This.GetName]!'"
 		owner = {
 			random_owned_planet = {
 				limit = {
@@ -295,7 +63,7 @@ pop_event = {
 					has_orbital_bombardment = no
 				}
 
-				# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+				log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
                 owner = { add_resource = { energy = -100 } }
 				resettle_pop = { pop = root planet = this }
@@ -307,7 +75,7 @@ pop_event = {
 		if = { 
 			limit = { has_pop_flag = pp_pop_is_relocating }
 			
-			# log = "PP::'Relocation failed, no suitable destination found!'"
+			log = "PP::'Relocation failed, no suitable destination found!'"
 
 			# remove relocating flag
 			remove_pop_flag = pp_pop_is_relocating
@@ -332,12 +100,12 @@ pop_event = {
     }
     
 	immediate = {
-        # log = "PP::pp.30([This.GetName])"
+        log = "PP::pp.30([This.GetName])"
 
 		# set relocating flag
 		set_pop_flag = pp_pop_is_relocating
 
-		# log = "PP::'Relocating [This.GetName]!'"
+		log = "PP::'Relocating [This.GetName]!'"
 		owner = {
 			random_owned_planet = {
 				limit = {
@@ -354,7 +122,7 @@ pop_event = {
 					has_orbital_bombardment = no
 				}
 
-				# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+				log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
 				resettle_pop = { pop = root planet = this }
 				root = { remove_pop_flag = pp_pop_is_relocating }
@@ -365,7 +133,7 @@ pop_event = {
 		if = { 
 			limit = { has_pop_flag = pp_pop_is_relocating }
 			
-			# log = "PP::'Relocation failed, no suitable destination found!'"
+			log = "PP::'Relocation failed, no suitable destination found!'"
 
 			# remove relocating flag
 			remove_pop_flag = pp_pop_is_relocating

@@ -1,13 +1,3 @@
-# A pop has finished growing
-# This = Planet scope
-# From = Country
-# FromFrom = Pop
-on_pop_grown = {
-	events = {
-        pp.10
-	}
-}
-
 # A pop has finished assembling
 # This = Planet scope
 # From = Country
