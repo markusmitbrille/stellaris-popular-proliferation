@@ -1,4 +1,4 @@
-version="1.0"
+version="2.0"
 tags={
 	"Balance"
 	"Economy"
@@ -6,6 +6,8 @@ tags={
 	"Pop"
 	"Growth"
 	"Pop Growth"
+	"Assembly"
+	"Pop Assembly"
 	"Migration"
 	"Resettle"
 	"Resettlement"
