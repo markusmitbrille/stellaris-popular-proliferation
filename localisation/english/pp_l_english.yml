@@ -14,9 +14,9 @@
  pp_purge_world_desc:1 "This world has been turned into a hub for the integration of newly acquired xenos. Abducted pops will be relocated here and onto other Purge Worlds."
 
  pp_decision_purge_world:0 "Create Purge World"
- pp_decision_purge_world_desc:1 "Turns the entire planet into a hub for the integration of newly acquired xenos - abductees will be relocated here, among other Purge Worlds."
- pp_decision_purge_world_effects_short:0 "§YAbductees§! will be relocated here, among other Purge Worlds"
+ pp_decision_purge_world_desc:1 "Turns the entire planet into a hub for the integration - or extermination - of newly acquired xenos. Abductees will always be transported to Purge Worlds."
+ pp_decision_purge_world_effects_short:0 "§YAbductees§! will be transported here"
 
  pp_decision_abolish_purge_world:0 "Abolish Purge World"
- pp_decision_abolish_purge_world_desc:1 "This planet's special status as a purge world is removed - it will no longer receive special consideration as a destination for abductees."
+ pp_decision_abolish_purge_world_desc:1 "This planet's special status as a purge world is removed. It will no longer receive special consideration as a destination for abductees."
  pp_decision_abolish_purge_world_effects_short:0 "§YAbductees§! will only be relocated here if there are no other Purge Worlds"
