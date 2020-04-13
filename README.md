@@ -7,7 +7,7 @@ This mod does four main things:
 
 + Poor organic pops increase growth speed, while wealthy organic pops reduce it.
 + Robotic pops give new assembly jobs per pop. This requires an assembly building.
-+ Overcrowding now only reduces growth/assembly speed (and immigration pull). Going over the housing limit should and will occur.
++ Overcrowding now only reduces growth/assembly speed (and immigration pull), it should and will occur.
 + Population control decisions are now actually useful and desirable.
 
 ## Gameplay Changes
