@@ -7,35 +7,54 @@
  
  PLANET_HOUSING_NO_HAPPINESS_DESC:0 "§E$PLANET_HOUSING_TITLE$ represents homes, apartments and other infrastructure dedicated to housing its inhabitants. A Planet that does not meet the Housing needs of its drone population will suffer penalties to £mod_pop_growth_speed£ §Y$MOD_POP_GROWTH_SPEED$§!.§!"
 
+ # discourage growth
+
  planet_growth_discouraged:0 "Growth Discouraged"
- planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth. Approval ratings will take a hit and emigration might occur."
+ planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth. Approval is down and the populace is seeking greener pastures."
 
  decision_discourage_growth:0 "Discourage Planetary Growth"
- decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Measures will then be taken to voluntarily curtail population growth. Approval ratings will take a hit and emigration might occur."
- decision_discourage_growth_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
+ decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Costly measures designed to voluntarily curtail population growth will be taken. Approval ratings will take a hit, but emigration might occur."
+ decision_discourage_growth_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nIncreases §R$mod_planet_pops_upkeep_mult$§! and reduces £happiness£ §Y$HAPPINESS$§! while active"
 
  decision_end_discourage_growth:0 "End Growth Discouragement"
  decision_end_discourage_growth_desc:1 "This will remove the political measures that were taken on this world to discourage population growth. Emigration will return to normal levels, as will approval ratings."
- decision_end_discourage_growth_effects_short:0 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nIncreases £happiness£ §Y$HAPPINESS$§!"
+ decision_end_discourage_growth_effects_short:0 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nReduces §R$mod_planet_pops_upkeep_mult$§! and increases £happiness£ §Y$HAPPINESS$§!"
 
- decision_enact_population_control:0 "Declare Population Controls"
- decision_enact_population_control_desc:0 "Population growth must not be allowed to outstrip administrative capacity, even if it requires drastic measures."
- decision_enact_population_control_effects_short:0 "Stops all £pop£ $POPULATION_GROWTH$ on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
+ # population controls
 
  planet_population_control:0 "Declared Population Controls"
  planet_population_control_desc:0 "A limit on population growth has been declared."
 
- decision_enact_population_control_gestalt:1 "Cease Drone Production"
- decision_enact_population_control_gestalt_desc:0 "There is no need for further Drones on this planet at the moment."
- decision_enact_population_control_gestalt_effects_short:0 "Stops all £pop£ $POPULATION_GROWTH$ on the planet."
-
- planet_population_control_gestalt:1 "Drone Population Controls"
- planet_population_control_gestalt_desc:1 "Drone production has stopped for now."
+ decision_enact_population_control:0 "Declare Population Controls"
+ decision_enact_population_control_desc:0 "Population growth must not be allowed to outstrip administrative capacity, even if it requires drastic measures. These simple, yet effective programs are going to be very unpopular, though."
+ decision_enact_population_control_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
 
  decision_end_population_control:0 "End Population Controls"
  decision_end_population_control_desc:1 "Population planning will no longer enforce restrictive measures."
- decision_end_population_control_effects_short:0 "£pop£ $POPULATION_GROWTH$ resumes on the planet\n\nIncreases £happiness£ §Y$HAPPINESS$§!"
+ decision_end_population_control_effects_short:0 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nIncreases £happiness£ §Y$HAPPINESS$§!"
 
- decision_end_population_control_gestalt:1 "Continue Drone Production"
- decision_end_population_control_gestalt_desc:1 "Drones are required once more."
- decision_end_population_control_gestalt_effects_short:1 "£pop£ $POPULATION_GROWTH$ resumes on the planet"
+ # population controls gestalt
+
+ planet_population_control_gestalt:1 "Drone Production Rerouted"
+ planet_population_control_gestalt_desc:1 "New Drones will be relocated to other worlds, when possible, to keep planetary population levels constant."
+
+ decision_enact_population_control_gestalt:1 "Reroute Drone Production"
+ decision_enact_population_control_gestalt_desc:0 "There is no need for further Drones on this planet at the moment. New Drones will be relocated to other worlds, when possible."
+ decision_enact_population_control_gestalt_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! and slows down §Y$planet_pop_assemblers$§! on the planet"
+
+ decision_end_population_control_gestalt:1 "Resume Drone Production"
+ decision_end_population_control_gestalt_desc:1 "Drones are required once more. New Drones will be deployed on this world again."
+ decision_end_population_control_gestalt_effects_short:1 "Reduces §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! and ramps up §Y$planet_pop_assemblers$§! on the planet"
+
+ # robot assembly
+
+ planet_robot_assembly_control:0 "Robot Assembly Rerouted"
+ planet_robot_assembly_control_desc:0 "New Robot, Droid, and Synthetic Pops will be deployed on other worlds, when possible, to keep planetary stocks constant."
+ 
+ decision_enact_robot_assembly_control:0 "Reroute Robot Assembly"
+ decision_enact_robot_assembly_control_desc:0 "Deploy new Robot, Droid, and Synthetic Pops on other worlds, when possible."
+ decision_enact_robot_assembly_control_effects_short:0 "New robots will be relocated to another planet without this modifier\n\nSlows down §Y$planet_pop_assemblers$§! on the planet"
+ 
+ decision_end_robot_assembly_control:0 "Resume Robot Assembly"
+ decision_end_robot_assembly_control_desc:0 "Resumes deployment of new Robot, Droid, and Synthetic Pops on this planet."
+ decision_end_robot_assembly_control_effects_short:0 "Ramps up §Y$planet_pop_assemblers$§! on the planet"

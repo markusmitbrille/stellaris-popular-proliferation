@@ -4,7 +4,7 @@
 # FromFrom = Pop
 on_pop_assembled = {
 	events = {
-        pp.20
+        PP.10
 	}
 }
 
@@ -13,6 +13,6 @@ on_pop_assembled = {
 # From = planet abducted from
 on_pop_abducted  = {
 	events = {
-        pp.30
+        PP.20
 	}
 }

@@ -1,59 +1,36 @@
-namespace = pp
+namespace = PP
 
 # reroute to pop
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
 planet_event = {
-	id = pp.20
+	id = PP.10
     hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		
+		OR = {
+			has_modifier = planet_population_control_gestalt
+			has_modifier = planet_robot_assembly_control
+		}
+
+		# don't decolonize planet
+        planet = { num_pops > 1 }
+	}
 	
 	immediate = {
-		FROMFROM = {
-			pop_event = { id = pp.21 }
-		}
-	}
-}
+        log = "PP::PP.10(THIS = [This.GetName], FROM = [From.GetName], FROMFROM = [From.From.GetName])"
 
-# relocate machine pop
-pop_event = {
-    id = pp.21
-    hide_window = yes
-    is_triggered_only = yes
-
-    trigger = {
-		exists = owner
-		is_gestalt = yes
-
-		# policy active
-		owner = { has_policy_flag = pp_relocation_imperative_active }
-
-		# only relocate if there are no free jobs
-		planet = { free_jobs < 1 }
-
-        # only relocate when resource cost can be paid
-        owner = { has_resource = { type = energy amount > 100 } }
-
-		# only relocate if there are other pops on the planet
-        planet = { num_pops > 1 }
-
-        # exclude pops that are being purged, assimilated or enslaved
-        is_being_purged = no
-        is_being_assimilated = no
-    }
-    
-	immediate = {
-        log = "PP::pp.20([This.GetName])"
-
-		# set relocating flag
-		set_pop_flag = pp_pop_is_relocating
-
-		log = "PP::'Relocating [This.GetName]!'"
 		owner = {
 			random_owned_planet = {
 				limit = {
-					free_jobs > 0
-
-					# exclude current planet
-					NOT = { is_same_value = root.planet }
+					NOR = {
+						has_modifier = planet_population_control_gestalt
+						has_modifier = planet_robot_assembly_control
+					}
 
 					# only colonized planets
 					is_colony = yes
@@ -63,49 +40,35 @@ pop_event = {
 					has_orbital_bombardment = no
 				}
 
-				log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+				log = "PP::'Relocating [From.From.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
-                owner = { add_resource = { energy = -100 } }
-				resettle_pop = { pop = root planet = this }
-				root = { remove_pop_flag = pp_pop_is_relocating }
+				resettle_pop = { pop = fromfrom planet = this }
 			}
 		}
-		
-		# no relocation destination found
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			
-			log = "PP::'Relocation failed, no suitable destination found!'"
-
-			# remove relocating flag
-			remove_pop_flag = pp_pop_is_relocating
-		}
-    }
+	}
 }
 
 # relocate abductee
+# This = Pop scope
+# From = planet abducted from
 pop_event = {
-    id = pp.30
+    id = PP.20
     hide_window = yes
     is_triggered_only = yes
 
     trigger = {
 		exists = owner
 
-		# only relocate if there are other pops on the planet
+		# don't decolonize planet
         planet = { num_pops > 1 }
 
         # only relocate pops that are not already on a purge world
-        planet = { NOT = { has_modifier = pp_purge_world } }
+        NOT = { planet = { has_modifier = pp_purge_world } }
     }
     
 	immediate = {
-        log = "PP::pp.30([This.GetName])"
+        log = "PP::PP.20(THIS = [This.GetName], FROM = [From.GetName], FROMFROM = [From.From.GetName])"
 
-		# set relocating flag
-		set_pop_flag = pp_pop_is_relocating
-
-		log = "PP::'Relocating [This.GetName]!'"
 		owner = {
 			random_owned_planet = {
 				limit = {
@@ -115,9 +78,6 @@ pop_event = {
 					is_colony = yes
 					is_under_colonization = no 
 
-					# exclude current planet
-					NOT = { is_same_value = root.planet }
-
 					# not under siege
 					has_orbital_bombardment = no
 				}
@@ -125,18 +85,7 @@ pop_event = {
 				log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
 				resettle_pop = { pop = root planet = this }
-				root = { remove_pop_flag = pp_pop_is_relocating }
 			}
-		}
-		
-		# no relocation destination found
-		if = { 
-			limit = { has_pop_flag = pp_pop_is_relocating }
-			
-			log = "PP::'Relocation failed, no suitable destination found!'"
-
-			# remove relocating flag
-			remove_pop_flag = pp_pop_is_relocating
 		}
     }
 }

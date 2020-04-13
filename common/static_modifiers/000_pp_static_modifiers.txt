@@ -83,14 +83,15 @@ planet_stability_high = {
 # 	planet_immigration_pull_add = 5
 # }
 
-#####################
-# DISCOURAGE GROWTH #
-#####################
+######################
+# DECISION MODIFIERS #
+######################
 
 planet_growth_discouraged = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
 	icon_frame = 2
 	planet_emigration_push_add = 100
+	planet_pops_upkeep_mult = 0.20
 	pop_cat_specialist_happiness = -0.05
 	pop_cat_worker_happiness = -0.10
 	pop_cat_slave_happiness = -0.10
@@ -99,8 +100,6 @@ planet_growth_discouraged = {
 planet_population_control = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
 	icon_frame = 2
-	custom_tooltip = STOPS_POPULATION_GROWTH
-	show_only_custom_tooltip = no
 	planet_emigration_push_add = 100
 	pop_cat_specialist_happiness = -0.15
 	pop_cat_worker_happiness = -0.30
@@ -110,7 +109,12 @@ planet_population_control = {
 planet_population_control_gestalt = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
 	icon_frame = 2
-	custom_tooltip = STOPS_POPULATION_GROWTH
-	show_only_custom_tooltip = yes
-	planet_pop_assemblers_upkeep_mult = -0.95
+	planet_emigration_push_add = 100
+	planet_pop_assembly_reduction = 0.50
+}
+
+planet_robot_assembly_control = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
+	icon_frame = 2
+	planet_pop_assembly_reduction = 0.50
 }
