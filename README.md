@@ -1,4 +1,4 @@
-# stellaris-popular-proliferation
+# Popular Proliferation
 Overhaul to population growth and management.
 
 While there are many mods that overhaul pop growth and management, I wanted to give it a shot too. I wanted to make growth natural, migration useful and job management fun, using only vanilla mechanics, while staying true to how I think the devs wanted them to work.
