@@ -1,0 +1,87 @@
+namespace = action
+
+# vanilla overwrite
+# necessary so the message shows the correct target planet
+pop_event = {
+	id = action.121
+	title = OK
+	desc = OK
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				exists = owner
+		
+				# only relocate pops that are not already on a purge world
+				NOT = { planet = { has_modifier = pp_purge_world } }
+			}
+			owner = {
+				random_owned_planet = {
+					limit = {
+						has_modifier = pp_purge_world
+	
+						# only colonized planets
+						is_colony = yes
+	
+						# not under siege
+						has_orbital_bombardment = no
+					}
+	
+					log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+	
+					resettle_pop = { pop = root planet = this }
+				}
+			}
+		}
+
+		create_message = {
+			type = MESSAGE_TYPE_POP_ABDUCTED
+			localization = MESSAGE_POP_ABDUCTED
+			days = 30
+			target = from
+			variable = {
+				type = name
+				localization = SPECIES
+				scope = root.species
+			}
+			variable = {
+				type = name
+				localization = TARGET_PLANET
+				scope = root.planet
+			}
+			variable = {
+				type = name
+				localization = PLANET
+				scope = from
+			}
+		}
+		from = {
+			owner = {
+				create_message = {
+					type = MESSAGE_TYPE_POP_ABDUCTED_FROM_US
+					localization = MESSAGE_POP_ABDUCTED_FROM_US
+					days = 30
+					target = from
+					variable = {
+						type = name
+						localization = SPECIES
+						scope = root.species
+					}
+					variable = {
+						type = name
+						localization = ABDUCTER
+						scope = root.planet.owner
+					}
+					variable = {
+						type = name
+						localization = PLANET
+						scope = from
+					}
+				}
+			}
+		}
+	}
+}

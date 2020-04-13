@@ -7,12 +7,3 @@ on_pop_assembled = {
         PP.10
 	}
 }
-
-# Pop is abducted by raiding stance
-# This = Pop scope
-# From = planet abducted from
-on_pop_abducted  = {
-	events = {
-        PP.20
-	}
-}
