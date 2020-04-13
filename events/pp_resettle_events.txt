@@ -26,8 +26,8 @@ pop_event = {
 		# policy active
 		owner = { has_policy_flag = pp_relocation_drive_active }
 
-		# only migrate unemployed
-		is_unemployed = yes
+		# only relocate if there are no free jobs
+		planet = { free_jobs < 1 }
 
         # only relocate when resource cost can be paid
         owner = { has_resource = { type = energy amount > 100 } }
@@ -258,8 +258,8 @@ pop_event = {
 		# policy active
 		owner = { has_policy_flag = pp_relocation_imperative_active }
 
-		# only migrate unemployed
-		is_unemployed = yes
+		# only relocate if there are no free jobs
+		planet = { free_jobs < 1 }
 
         # only relocate when resource cost can be paid
         owner = { has_resource = { type = energy amount > 100 } }
