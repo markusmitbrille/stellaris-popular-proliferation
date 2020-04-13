@@ -53,7 +53,7 @@
  
  decision_enact_robot_assembly_control:0 "Reroute Robot Assembly"
  decision_enact_robot_assembly_control_desc:0 "Deploy new Robot, Droid, and Synthetic Pops on other worlds, when possible."
- decision_enact_robot_assembly_control_effects_short:0 "New robots will be relocated to another planet without this modifier\n\nSlows down §Y$planet_pop_assemblers$§! on the planet"
+ decision_enact_robot_assembly_control_effects_short:0 "New robots will be relocated to other planets without this modifier\n\nSlows down §Y$planet_pop_assemblers$§! on the planet"
  
  decision_end_robot_assembly_control:0 "Resume Robot Assembly"
  decision_end_robot_assembly_control_desc:0 "Resumes deployment of new Robot, Droid, and Synthetic Pops on this planet."
