@@ -5,8 +5,8 @@ NPop = {
 	BASE_POP_GROWTH						= 2		# vanilla = 3		# Base growth rate of pops
 	REQUIRED_POP_GROWTH					= 100	# vanilla = 100		# Required growth to make a new pop
 
-	# BASE_POP_ASSEMBLY					= 0		# vanilla = 0		# Base assembly rate of pops
-	# REQUIRED_POP_ASSEMBLY				= 100	# vanilla = 100		# Required assembly to add a pop
+	BASE_POP_ASSEMBLY					= 0		# vanilla = 0		# Base assembly rate of pops
+	REQUIRED_POP_ASSEMBLY				= 150	# vanilla = 100		# Required assembly to add a pop
 
 	MAX_EMIGRATION_PUSH					= 100	# vanilla = 100
 	MAX_GROWTH_FROM_IMMIGRATION			= 50	# vanilla = 5
