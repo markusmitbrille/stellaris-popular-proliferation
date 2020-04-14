@@ -35,6 +35,9 @@ One minor addition this mod makes, is that it includes a small decision to desig
 ## Balancing
 For balancing refer to this extensive [spreadsheet](https://docs.google.com/spreadsheets/d/1kbdyD52Vk_0aKVh1qNB1TXWGevJIUIEH8djyTciL-S8/edit?usp=sharing).
 
+## Compatibility
+This mod should be compatible with most other mods, however if another mod makes changes to the same game element (like a building) they will overwrite each other, depending on your load order.
+
 ## Overwrites
 No Vanilla Files were harmed in the production of this mod.
 
