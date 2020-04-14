@@ -1,15 +1,4 @@
 ﻿l_english:
- policy_pp_relocation_imperative:0 "Relocation Imperative"
- policy_pp_relocation_imperative_desc:0 "This decentralized subroutine can be activated to reduce administrative burdens, by making newly created, yet superfluous drones relocate to worlds where they are needed."
-
- pp_relocation_imperative_dormant:0 "Dormant"
- pp_relocation_imperative_dormant_name:0 "Relocation Imperative Dormant"
- pp_relocation_imperative_dormant_desc:1 "The subroutine lies dormant.\n\n§E£pops£ §Y$POPS$§! will not relocate§!"
-
- pp_relocation_imperative_active:0 "Active"
- pp_relocation_imperative_active_name:0 "Relocation Imperative Active"
- pp_relocation_imperative_active_desc:1 "Subroutine is activated and running.\n\n§ENew £pops£ §Y$POPS$§! on planets without a $FREE_JOB$ will automatically relocate, using up £energy£ §Y$energy$§!§!"
-
  pp_purge_world:0 "Purge World"
  pp_purge_world_desc:1 "This world has been turned into a hub for the integration - or extermination - of newly acquired xenos. Abducted pops will be relocated here and onto other Purge Worlds."
 
