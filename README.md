@@ -39,9 +39,16 @@ For balancing refer to this extensive [spreadsheet](https://docs.google.com/spre
 This mod should be compatible with most other mods, however if another mod makes changes to the same game element (like a building) they will overwrite each other, depending on your load order.
 
 ## Overwrites
-No Vanilla Files were harmed in the production of this mod.
+A few vanilla files had to be overwritten, i.e. pop categories. Just overwriting the pop category elements broke all modifiers for pop categories, like "pop_cat_worker_happiness".
 
-... but some elements were:
+The following vanilla *files* have been overwritten:
+
++ Pop Categories:
+  + 00_social_classes.txt
+  + 01_gestalt_drones.txt
+  + 02_other_categories.txt
+
+The following vanilla *elements* have been overwritten:
 
 + Buildings:
   + building_robot_assembly_plant
@@ -60,20 +67,6 @@ No Vanilla Files were harmed in the production of this mod.
 + Game Rules:
   + can_pops_grow_on_planet
   + can_pops_assemble_on_planet
-+ Pop Categories:
-  + ruler
-  + specialist
-  + worker
-  + complex_drone
-  + simple_drone
-  + robot_servant
-  + slave
-  + bio_trophy
-  + criminal
-  + deviant_drone
-  + corrupt_drone
-  + precursor
-  + xeno_ward
 + Modifiers:
   + planet_housing_no_happiness_low
   + planet_housing_low
