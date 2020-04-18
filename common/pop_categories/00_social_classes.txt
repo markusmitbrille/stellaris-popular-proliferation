@@ -259,7 +259,7 @@ ruler = {
 		potential = {
 			is_organic_species = yes
 		}
-		pop_growth_speed = -0.15
+		pop_growth_speed = 0.01
 	}
 }
 
@@ -648,7 +648,7 @@ worker = {
 		}
 	}
 	unemployment_penalties = {
-		pop_happiness = -0.20
+		pop_happiness = 0.02
 	}
 	unemployment_resources = {
 		category = unemployment_resources

@@ -5,7 +5,7 @@ While there are many mods that overhaul pop growth and management, I wanted to g
 
 This mod does four main things:
 
-+ Poor organic pops increase growth speed, while wealthy organic pops reduce it.
++ Organic pops increase growth speed, the poorer they are, the greater the effect.
 + Robotic pops give new assembly jobs per pop. This requires an assembly building.
 + Overcrowding now only reduces growth/assembly speed (and immigration pull), it should and will occur.
 + Population control decisions are now actually useful and desirable.
@@ -14,7 +14,7 @@ This mod does four main things:
 ### Growth and Assembly Speed
 Growth and assembly have been overhauled so they will roughly result in a natural growth curve.
 
-Organic pops breed - the more pops there are, the more they can breed, leading to exponential growth. This growth is stifled by wealth and housing. Wealth is represented by pop categories: Rulers and specialists reduce growth, workers and slaves increase growth; in hive-minds complex drones reduce growth, while menial drones increase it. This adds an element of balance to managing organic populations: You want your pops to produce useful, high-level stuff like research, consumer goods and alloys, but the emerging middle-class on highly developed planets causes growth to stagnate. One way to keep such planets growing is immigration, just provide free housing and jobs and they will come.
+Organic pops breed - the more pops there are, the more they can breed, leading to exponential growth. This growth is stifled by wealth and housing. Wealth is represented by pop categories: Rulers and specialists still increase growth, but less so, while workers and slaves tremendously increase growth; in hive-minds complex drones act similarly to rulers and specialists, since their jobs are more demanding and they cannot focus on reproduction as intensively as menial drones. This adds an element of balance to managing organic populations: You want your pops to produce useful, high-level stuff like research, consumer goods and alloys, but the emerging middle-class on highly developed planets causes growth to stagnate. One way to keep such planets growing is immigration - just provide free housing and jobs and they will come.
 
 Robotic pops are built by other pops, a process that has an overhead of quasi-useless pops that don't add any value to society, except for making new robots, but on the upside this means that robotic populations are not dependent on an impoverished lower class to continue growth. Assembly buildings now add additional assemblers, roboticists for mechanical and synthetic empires, replicators for machine empires, based on population, making them invaluable for worlds where exponential assemblage is desired.
 

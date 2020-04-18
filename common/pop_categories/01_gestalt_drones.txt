@@ -81,7 +81,7 @@ complex_drone = {
 		potential = {
 			is_organic_species = yes
 		}
-		pop_growth_speed = -0.05
+		pop_growth_speed = 0.015
 	}
 }
 

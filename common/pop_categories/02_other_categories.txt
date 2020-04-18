@@ -392,7 +392,7 @@ bio_trophy = {
 		potential = {
 			is_organic_species = yes
 		}
-		pop_growth_speed = 0.05
+		pop_growth_speed = 0.02
 	}
 }
 
@@ -1336,7 +1336,6 @@ xeno_ward = {
 		}
 	}
 }
-
 
 pre_sapients = {
 	rank = 0
