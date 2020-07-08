@@ -2,6 +2,8 @@ purge = {
 	rank = 0
 	clothes_texture_index = 2
 
+	display_unemployment = no
+
 	assign_to_pop = {
 		OR = {
 			is_being_purged = yes
@@ -644,6 +646,8 @@ criminal = {
 
 assimilation = {
 	rank = 0
+
+	display_unemployment = no
 
 	assign_to_pop = {
 		is_being_assimilated = yes
