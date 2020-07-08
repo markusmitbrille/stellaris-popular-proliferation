@@ -10,7 +10,7 @@
  # discourage growth
 
  planet_growth_discouraged:0 "Growth Discouraged"
- planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth. Approval is down and the populace is seeking greener pastures."
+ planet_growth_discouraged_desc:1 "This world has implemented several measures designed to discourage population growth. Emigration has increased as the populace is seeking greener pastures."
 
  decision_discourage_growth:0 "Discourage Planetary Growth"
  decision_discourage_growth_desc:1 "If resources and living space are at a premium, population planning might be necessary on this world. Costly measures designed to voluntarily curtail population growth will be taken. Approval ratings will take a hit, but emigration might occur."
