@@ -22,7 +22,7 @@ planet_event = {
 	}
 	
 	immediate = {
-        log = "PP::PP.10(THIS = [This.GetName], FROM = [From.GetName], FROMFROM = [From.From.GetName])"
+        # log = "PP::PP.10(THIS = [This.GetName], FROM = [From.GetName], FROMFROM = [From.From.GetName])"
 
 		owner = {
 			random_owned_planet = {
@@ -40,7 +40,7 @@ planet_event = {
 					has_orbital_bombardment = no
 				}
 
-				log = "PP::'Relocating [From.From.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+				# log = "PP::'Relocating [From.From.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 
 				resettle_pop = { pop = fromfrom planet = this }
 			}

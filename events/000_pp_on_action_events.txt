@@ -30,7 +30,7 @@ pop_event = {
 						has_orbital_bombardment = no
 					}
 	
-					log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
+					# log = "PP::'Relocating [Root.GetName] to [This.GetClassName] Planet [This.GetName]!'"
 	
 					resettle_pop = { pop = root planet = this }
 				}
