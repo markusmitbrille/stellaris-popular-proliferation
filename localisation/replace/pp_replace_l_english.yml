@@ -23,10 +23,10 @@
  # population controls
 
  planet_population_control:0 "Declared Population Controls"
- planet_population_control_desc:0 "A limit on population growth has been declared."
+ planet_population_control_desc:0 "A limit on population growth has been declared. Emigration has increased as citizens flee to worlds where their liberties are less curtailed."
 
  decision_enact_population_control:0 "Declare Population Controls"
- decision_enact_population_control_desc:0 "Population growth must not be allowed to outstrip administrative capacity, even if it requires drastic measures. These simple, yet effective programs are going to be very unpopular, though."
+ decision_enact_population_control_desc:0 "Population growth must not be allowed to outstrip administrative capacity, even if it requires drastic measures. These simple, yet effective programs are going to be very unpopular, though, leading to an increase in emigration."
  decision_enact_population_control_effects_short:0 "Increases §Y$MOD_PLANET_EMIGRATION_PUSH_ADD$§! on the planet\n\nReduces £happiness£ §Y$HAPPINESS$§! while active"
 
  decision_end_population_control:0 "End Population Controls"
