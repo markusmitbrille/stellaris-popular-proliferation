@@ -124,7 +124,6 @@ worker = {
 		exists = owner
 		owner = {
 			is_gestalt = no
-			is_fallen_empire_spiritualist = no
 		}
 	}
 	weight = {
