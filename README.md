@@ -1,3 +1,5 @@
+Outdated as of Nemesis, as this expansion introduces logistic pop growth.
+
 # Popular Proliferation
 Overhaul to population growth and management.
 
